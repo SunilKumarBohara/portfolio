@@ -12,9 +12,7 @@ import {
   Calendar,
   Clock,
   ArrowRight,
-  BookOpen,
   X,
-  Sparkles,
   Tag,
   User,
   ExternalLink,
@@ -37,7 +35,9 @@ export default function BlogSection() {
         const data = await res.json();
         if (data.length > 0) {
           setPosts(data);
-          const uniqueCats = Array.from(new Set(data.map((p: BlogPost) => p.category))) as string[];
+          const uniqueCats = Array.from(
+            new Set(data.map((p: BlogPost) => p.category))
+          ) as string[];
           setCategories(["All Insights", ...uniqueCats]);
         }
       }
@@ -52,16 +52,19 @@ export default function BlogSection() {
       : posts.filter((p) => p.category === selectedCat);
 
   return (
-    <section id="insights" className="relative py-24 sm:py-32 bg-surface-300 border-t border-white/5 overflow-hidden">
+    <section
+      id="insights"
+      className="relative py-24 sm:py-32 bg-surface-300 border-t border-white/5 overflow-hidden"
+    >
       {/* Glow */}
       <div className="absolute top-1/3 left-10 w-96 h-96 bg-brand-green/5 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal animation="fade-up">
           <SectionHeading
-            badge="Thought Leadership & Articles"
+            badge="Written Insights & Strategy"
             title="SEO Insights"
-            subtitle="In-depth analysis, algorithmic breakdown guides, and practical playbooks on technical search optimization and sustainable digital growth."
+            subtitle="In-depth technical breakdowns, keyword intent analysis, and structured search methodologies authored by Sunil Kumar Bohara."
           />
         </ScrollReveal>
 
@@ -135,7 +138,7 @@ export default function BlogSection() {
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-brand-cyan group-hover:text-brand-green transition-colors">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-brand-cyan group-hover:text-brand-green transition-colors font-semibold">
                     <span>Quick Preview</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -157,25 +160,27 @@ export default function BlogSection() {
         </ScrollReveal>
       </div>
 
-      {/* Article Reading Modal */}
+      {/* Clean Professional Article Reading / Quick Preview Modal */}
       <AnimatePresence>
         {activeArticle && (
           <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-background/85 backdrop-blur-xl">
             <motion.div
-              initial={{ opacity: 0, scale: 0.92 }}
+              initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 0.92 }}
-              transition={{ duration: 0.3 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.25 }}
               className="relative w-full max-w-3xl bg-surface-300 border border-brand-green/40 rounded-3xl p-6 sm:p-10 shadow-2xl max-h-[90vh] overflow-y-auto"
             >
               {/* Close Button */}
               <button
                 onClick={() => setActiveArticle(null)}
                 className="absolute top-6 right-6 p-2 rounded-xl bg-surface-100 border border-white/10 text-gray-400 hover:text-white hover:border-brand-green focus:outline-none"
+                aria-label="Close preview"
               >
                 <X className="w-5 h-5" />
               </button>
 
+              {/* Category & Read Time */}
               <div className="flex items-center gap-2 mb-3">
                 <span className="px-3 py-1 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-xs font-mono">
                   {activeArticle.category}
@@ -185,27 +190,37 @@ export default function BlogSection() {
                 </span>
               </div>
 
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-display mb-4">
+              {/* Insight Title */}
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-display mb-4 leading-tight">
                 {activeArticle.title}
               </h2>
 
+              {/* Author & Meta */}
               <div className="flex items-center gap-3 pb-6 mb-6 border-b border-white/10 text-xs font-mono text-gray-400">
                 <div className="flex items-center gap-1.5 text-white">
                   <User className="w-3.5 h-3.5 text-brand-green" />
-                  <span>{activeArticle.authorName || "Sunil Kumar Bohara"}</span>
+                  <span className="font-semibold">Sunil Kumar Bohara</span>
                 </div>
                 <span>•</span>
                 <span>{activeArticle.date}</span>
                 <span>•</span>
-                <span>Kathmandu, Nepal</span>
+                <span>SEO Executive</span>
               </div>
 
-              {/* Formatted Content */}
-              <div className="space-y-4 text-sm text-gray-300 leading-relaxed font-sans whitespace-pre-line">
+              {/* Short Introduction */}
+              <div className="p-4 rounded-xl bg-surface-200/80 border border-white/5 mb-6 text-sm text-gray-300 leading-relaxed font-sans">
+                <strong className="text-white block mb-1 font-mono text-xs uppercase tracking-wider text-brand-green">
+                  Introduction:
+                </strong>
+                {activeArticle.excerpt}
+              </div>
+
+              {/* Main Useful Written Content */}
+              <div className="space-y-4 text-sm sm:text-base text-gray-300 leading-relaxed font-sans whitespace-pre-line">
                 {activeArticle.content}
               </div>
 
-              {/* Tags */}
+              {/* Tags & Action Button */}
               <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <Tag className="w-3.5 h-3.5 text-brand-cyan" />
@@ -221,10 +236,10 @@ export default function BlogSection() {
 
                 <Link
                   href={`/blog/${activeArticle.slug}`}
-                  className="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-surface-300 text-xs font-bold shadow-glow-sm hover:brightness-110 flex items-center gap-1.5"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-surface-300 text-xs font-bold shadow-glow-sm hover:brightness-110 flex items-center gap-2"
                 >
-                  <span>Open Full Article</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <span>Read Full Insight</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </motion.div>

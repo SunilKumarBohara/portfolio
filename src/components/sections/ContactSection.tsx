@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SectionHeading from "../ui/SectionHeading";
 import GlassCard from "../ui/GlassCard";
 import { siteConfig } from "@/data/siteConfig";
-import MagneticButton from "../ui/MagneticButton";
+import ScrollReveal from "../ui/ScrollReveal";
 import {
   Mail,
   MapPin,
@@ -15,21 +15,77 @@ import {
   Check,
   Linkedin,
   Github,
-  Twitter,
+  Facebook,
+  Instagram,
   Sparkles,
-  Globe,
+  ArrowUpRight,
+  AlertCircle,
+  Loader2,
 } from "lucide-react";
+
+// Custom X (Twitter) Icon
+function XTwitterIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+    </svg>
+  );
+}
+
+const socialProfiles = [
+  {
+    name: "GitHub",
+    handle: "SunilKumarBohara",
+    url: siteConfig.socials.github,
+    icon: Github,
+    color: "hover:text-white hover:border-gray-400 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]",
+    badgeColor: "bg-gray-800 text-gray-200",
+  },
+  {
+    name: "LinkedIn",
+    handle: "Sunil Kumar Bohara",
+    url: siteConfig.socials.linkedin,
+    icon: Linkedin,
+    color: "hover:text-sky-400 hover:border-sky-400 hover:shadow-[0_0_20px_rgba(56,189,248,0.3)]",
+    badgeColor: "bg-sky-950 text-sky-300",
+  },
+  {
+    name: "Facebook",
+    handle: "sunilkumarbohara99",
+    url: siteConfig.socials.facebook,
+    icon: Facebook,
+    color: "hover:text-blue-500 hover:border-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]",
+    badgeColor: "bg-blue-950 text-blue-300",
+  },
+  {
+    name: "Instagram",
+    handle: "sunilkumarbohara7",
+    url: siteConfig.socials.instagram,
+    icon: Instagram,
+    color: "hover:text-pink-400 hover:border-pink-400 hover:shadow-[0_0_20px_rgba(244,114,182,0.3)]",
+    badgeColor: "bg-pink-950 text-pink-300",
+  },
+  {
+    name: "X (Twitter)",
+    handle: "@SunilBohara66",
+    url: siteConfig.socials.twitter,
+    icon: XTwitterIcon,
+    color: "hover:text-cyan-400 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.3)]",
+    badgeColor: "bg-cyan-950 text-cyan-300",
+  },
+];
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     website: "",
-    service: "Technical SEO Audit",
+    service: "Technical SEO & Audit",
     message: "",
   });
 
@@ -39,15 +95,34 @@ export default function ContactSection() {
     setTimeout(() => setCopied(false), 2500);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.name || !formData.email || !formData.message) return;
+    setErrorMessage(null);
+
+    if (!formData.name || !formData.email || !formData.message) {
+      setErrorMessage("Please complete all required fields.");
+      return;
+    }
 
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+      if (res.ok && data.success) {
+        setSubmitted(true);
+      } else {
+        setErrorMessage(data.error || "Failed to deliver enquiry. Please try emailing directly.");
+      }
+    } catch {
+      setErrorMessage("Network error occurred. Please try again or reach out via email.");
+    } finally {
       setIsSubmitting(false);
-      setSubmitted(true);
-    }, 1000);
+    }
   };
 
   return (
@@ -56,51 +131,47 @@ export default function ContactSection() {
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[400px] bg-gradient-radial from-brand-green/10 via-brand-cyan/5 to-transparent blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <SectionHeading
-          badge="Direct Inquiries & Strategy"
-          title="Let's Grow Something That Gets Found."
-          subtitle="Have a website that needs better visibility? Let's talk about your SEO goals."
-        />
+        <ScrollReveal animation="fade-up">
+          <SectionHeading
+            badge="Direct Consultation & Inquiries"
+            title="Let's Grow Your Search Presence."
+            subtitle="Have a website ready for higher visibility, cleaner technical architecture, and organic search traffic? Let's discuss your project."
+          />
+        </ScrollReveal>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Left Column: Direct Info & Availability */}
-          <motion.div
-            initial={{ opacity: 0, x: -24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 space-y-6"
-          >
+          {/* Left Column: Direct Info & 5 Verified Social Profiles */}
+          <ScrollReveal animation="slide-left" className="lg:col-span-5 space-y-6">
             <GlassCard className="p-8 border-brand-green/30">
               <h3 className="text-xl font-bold text-white font-display mb-2">
-                Start an SEO Conversation
+                Get In Touch with Sunil
               </h3>
               <p className="text-xs text-gray-400 leading-relaxed mb-6">
-                Whether you need a comprehensive technical audit, a long-term organic growth roadmap, or guidance on search engine algorithms, I am ready to collaborate.
+                Whether you need a full technical SEO audit, a keyword roadmap, or guidance on optimizing for AI and Answer engines (GEO/AEO), I am available to help.
               </p>
 
               {/* Status Indicator */}
-              <div className="p-4 rounded-xl bg-surface-100/90 border border-white/5 space-y-3 mb-6">
+              <div className="p-4 rounded-xl bg-surface-100/90 border border-white/5 space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-xs font-mono text-brand-green">
                   <span className="w-2.5 h-2.5 rounded-full bg-brand-green animate-pulse" />
-                  <span className="font-bold">Available for Q3/Q4 Projects</span>
+                  <span className="font-bold">Available for Inquiries & Consultation</span>
                 </div>
                 <p className="text-[11px] font-mono text-gray-400">
-                  Response Time: Typically within 24 business hours.
+                  Location: Kathmandu, Nepal (GMT+5:45)
                 </p>
               </div>
 
-              {/* Email & Location Information */}
+              {/* Email Information */}
               <div className="space-y-3 text-xs font-mono">
-                <div className="flex items-center justify-between p-3 rounded-xl bg-surface-100/70 border border-white/5">
+                <div className="flex items-center justify-between p-3.5 rounded-xl bg-surface-100/70 border border-white/5">
                   <div className="flex items-center gap-2.5 text-gray-300">
                     <Mail className="w-4 h-4 text-brand-cyan" />
-                    <span>{siteConfig.email}</span>
+                    <span className="text-white font-medium">{siteConfig.email}</span>
                   </div>
                   <button
                     onClick={handleCopyEmail}
                     className="p-1.5 rounded-lg bg-surface-200 hover:bg-surface-50 border border-white/10 text-gray-300 hover:text-brand-green transition-all"
-                    title="Copy email to clipboard"
+                    title="Copy email address"
                     aria-label="Copy email"
                   >
                     {copied ? (
@@ -110,68 +181,54 @@ export default function ContactSection() {
                     )}
                   </button>
                 </div>
-
-                <div className="flex items-center gap-2.5 p-3 rounded-xl bg-surface-100/70 border border-white/5 text-gray-300">
-                  <MapPin className="w-4 h-4 text-brand-green" />
-                  <span>Kathmandu, Nepal (GMT+5:45)</span>
-                </div>
               </div>
 
-              {/* Social Channels */}
-              <div className="pt-6 mt-6 border-t border-white/10">
-                <p className="text-[10px] font-mono uppercase tracking-wider text-gray-400 mb-3">
-                  Verified Social Channels
-                </p>
-                <div className="flex items-center gap-3">
-                  <a
-                    href={siteConfig.socials.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-green hover:text-brand-green transition-all"
-                    aria-label="LinkedIn Profile"
-                  >
-                    <Linkedin className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={siteConfig.socials.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-green hover:text-brand-green transition-all"
-                    aria-label="GitHub Profile"
-                  >
-                    <Github className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={siteConfig.socials.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-green hover:text-brand-green transition-all"
-                    aria-label="Twitter Profile"
-                  >
-                    <Twitter className="w-4 h-4" />
-                  </a>
-                  <a
-                    href={siteConfig.socials.website}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-green hover:text-brand-green transition-all"
-                    aria-label="Website"
-                  >
-                    <Globe className="w-4 h-4" />
-                  </a>
+              {/* 5 Verified Social Profiles with 3D Hover & Glow */}
+              <div className="pt-6 mt-6 border-t border-white/10 space-y-3">
+                <div className="flex items-center justify-between">
+                  <span className="text-[10px] font-mono uppercase tracking-wider text-brand-green font-semibold">
+                    Verified Social Profiles
+                  </span>
+                  <span className="text-[10px] font-mono text-gray-500">Official Links</span>
+                </div>
+
+                <div className="grid grid-cols-1 gap-2.5">
+                  {socialProfiles.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <a
+                        key={item.name}
+                        href={item.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`group flex items-center justify-between p-3 rounded-xl bg-surface-100/80 border border-white/5 transition-all duration-300 transform hover:-translate-y-0.5 ${item.color}`}
+                        aria-label={`${item.name} profile`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className="w-8 h-8 rounded-lg bg-surface-200 border border-white/10 flex items-center justify-center text-gray-300 group-hover:scale-110 transition-transform">
+                            <Icon className="w-4 h-4" />
+                          </div>
+                          <div>
+                            <span className="text-xs font-bold text-white block group-hover:text-brand-green transition-colors font-display">
+                              {item.name}
+                            </span>
+                            <span className="text-[10px] font-mono text-gray-500">
+                              {item.handle}
+                            </span>
+                          </div>
+                        </div>
+
+                        <ArrowUpRight className="w-4 h-4 text-gray-500 group-hover:text-brand-green group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
             </GlassCard>
-          </motion.div>
+          </ScrollReveal>
 
-          {/* Right Column: Interactive Consultation Form */}
-          <motion.div
-            initial={{ opacity: 0, x: 24 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-50px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7"
-          >
+          {/* Right Column: Server-Side Validated Contact Form */}
+          <ScrollReveal animation="slide-right" className="lg:col-span-7">
             <GlassCard className="p-8 sm:p-10 border-white/10">
               {submitted ? (
                 <div className="text-center py-12 space-y-4">
@@ -179,10 +236,10 @@ export default function ContactSection() {
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-bold text-white font-display">
-                    Message Dispatched Successfully!
+                    Enquiry Received Successfully!
                   </h3>
-                  <p className="text-xs text-gray-400 max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out. Sunil will review your website details and reply promptly with initial thoughts.
+                  <p className="text-xs text-gray-300 max-w-md mx-auto leading-relaxed">
+                    Thank you for reaching out, <strong className="text-white">{formData.name}</strong>. Your message has been routed directly to Sunil&apos;s inbox. You will receive a response shortly.
                   </p>
                   <button
                     onClick={() => {
@@ -191,17 +248,24 @@ export default function ContactSection() {
                         name: "",
                         email: "",
                         website: "",
-                        service: "Technical SEO Audit",
+                        service: "Technical SEO & Audit",
                         message: "",
                       });
                     }}
                     className="px-6 py-2.5 rounded-xl bg-surface-100 hover:bg-surface-50 border border-white/10 text-xs font-mono text-gray-300"
                   >
-                    Send Another Inquiry
+                    Send Another Enquiry
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {errorMessage && (
+                    <div className="p-3.5 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-xs flex items-center gap-2.5">
+                      <AlertCircle className="w-4 h-4 text-red-400 shrink-0" />
+                      <span>{errorMessage}</span>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div className="space-y-1.5">
@@ -215,7 +279,7 @@ export default function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, name: e.target.value })
                         }
-                        placeholder="e.g. John Doe"
+                        placeholder="e.g. Alex Morgan"
                         className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all"
                       />
                     </div>
@@ -232,7 +296,7 @@ export default function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, email: e.target.value })
                         }
-                        placeholder="name@company.com"
+                        placeholder="alex@company.com"
                         className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all"
                       />
                     </div>
@@ -242,7 +306,7 @@ export default function ContactSection() {
                     {/* Company / Website */}
                     <div className="space-y-1.5">
                       <label className="text-xs font-mono text-gray-300">
-                        Company or Website URL
+                        Website or Company (Optional)
                       </label>
                       <input
                         type="text"
@@ -250,7 +314,7 @@ export default function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, website: e.target.value })
                         }
-                        placeholder="https://yourwebsite.com"
+                        placeholder="https://example.com"
                         className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all font-mono"
                       />
                     </div>
@@ -258,7 +322,7 @@ export default function ContactSection() {
                     {/* Service Required */}
                     <div className="space-y-1.5">
                       <label className="text-xs font-mono text-gray-300">
-                        Primary Service Needed
+                        Requested Focus
                       </label>
                       <select
                         value={formData.service}
@@ -267,13 +331,13 @@ export default function ContactSection() {
                         }
                         className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white text-xs focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all"
                       >
-                        <option value="Technical SEO Audit">Technical SEO Audit</option>
+                        <option value="Technical SEO & Audit">Technical SEO & Audit</option>
+                        <option value="Generative Engine Optimization (GEO)">Generative Engine Optimization (GEO)</option>
+                        <option value="Answer Engine Optimization (AEO)">Answer Engine Optimization (AEO)</option>
                         <option value="Keyword & Search Intent Strategy">Keyword & Search Intent Strategy</option>
-                        <option value="On-Page & Semantic Optimization">On-Page & Semantic Optimization</option>
-                        <option value="Content Strategy & Authority">Content Strategy & Authority</option>
-                        <option value="Local SEO & Google Maps">Local SEO & Google Maps</option>
+                        <option value="On-Page & Semantic Architecture">On-Page & Semantic Architecture</option>
                         <option value="Core Web Vitals Remediation">Core Web Vitals Remediation</option>
-                        <option value="Full Organic Growth Partnership">Full Organic Growth Partnership</option>
+                        <option value="Ongoing SEO Executive Retainer">Ongoing SEO Executive Retainer</option>
                       </select>
                     </div>
                   </div>
@@ -281,7 +345,7 @@ export default function ContactSection() {
                   {/* Message */}
                   <div className="space-y-1.5">
                     <label className="text-xs font-mono text-gray-300">
-                      Project Details & SEO Goals <span className="text-brand-green">*</span>
+                      Project Details & Search Goals <span className="text-brand-green">*</span>
                     </label>
                     <textarea
                       required
@@ -290,7 +354,7 @@ export default function ContactSection() {
                       onChange={(e) =>
                         setFormData({ ...formData, message: e.target.value })
                       }
-                      placeholder="Describe your current search challenges, traffic goals, or timelines..."
+                      placeholder="Share details about your site, target search audience, or specific challenges..."
                       className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-brand-green focus:ring-1 focus:ring-brand-green transition-all leading-relaxed"
                     />
                   </div>
@@ -302,10 +366,13 @@ export default function ContactSection() {
                     className="w-full py-4 rounded-xl bg-gradient-to-r from-brand-green via-teal-400 to-brand-cyan text-surface-300 font-bold text-sm hover:brightness-110 transition-all flex items-center justify-center gap-2 shadow-glow-sm disabled:opacity-50"
                   >
                     {isSubmitting ? (
-                      <span className="font-mono text-xs">Sending Message...</span>
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span className="font-mono text-xs">Sending to Sunil&apos;s Inbox...</span>
+                      </>
                     ) : (
                       <>
-                        <span>Send Message & Inquire</span>
+                        <span>Submit Consultation Request</span>
                         <Send className="w-4 h-4" />
                       </>
                     )}
@@ -313,7 +380,7 @@ export default function ContactSection() {
                 </form>
               )}
             </GlassCard>
-          </motion.div>
+          </ScrollReveal>
         </div>
       </div>
     </section>

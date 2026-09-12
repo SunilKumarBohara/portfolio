@@ -3,6 +3,7 @@ import { Inter, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/siteConfig";
 import LayoutWrapper from "@/components/ui/LayoutWrapper";
+import { ThemeProvider } from "@/components/ui/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -23,7 +24,10 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: "#06070a",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
+    { media: "(prefers-color-scheme: dark)", color: "#06070a" },
+  ],
   width: "device-width",
   initialScale: 1,
 };
@@ -65,7 +69,7 @@ export const metadata: Metadata = {
         url: siteConfig.seo.ogImage,
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name} - SEO Specialist Nepal`,
+        alt: `${siteConfig.name} — SEO Executive Nepal`,
       },
     ],
   },
@@ -73,7 +77,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteConfig.seo.defaultTitle,
     description: siteConfig.seo.defaultDescription,
-    creator: "@sunilbohara_seo",
+    creator: "@SunilBohara66",
     images: [siteConfig.seo.ogImage],
   },
 };
@@ -99,12 +103,16 @@ export default function RootLayout({
       addressCountry: "Nepal",
     },
     sameAs: [
-      siteConfig.socials.linkedin,
       siteConfig.socials.github,
+      siteConfig.socials.linkedin,
+      siteConfig.socials.facebook,
+      siteConfig.socials.instagram,
       siteConfig.socials.twitter,
     ],
     knowsAbout: [
       "Search Engine Optimization (SEO)",
+      "Generative Engine Optimization (GEO)",
+      "Answer Engine Optimization (AEO)",
       "Technical SEO",
       "Keyword Research",
       "On-Page SEO",
@@ -131,32 +139,31 @@ export default function RootLayout({
     },
   };
 
-  const professionalServiceJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: `${siteConfig.name} - SEO Consulting`,
-    image: `${siteConfig.seo.siteUrl}/og-image.png`,
-    url: siteConfig.seo.siteUrl,
-    telephone: "+977-9800000000",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Kathmandu",
-      addressCountry: "NP",
-    },
-    geo: {
-      "@type": "GeoCoordinates",
-      latitude: 27.7172,
-      longitude: 85.324,
-    },
-    priceRange: "$$",
-  };
-
   return (
     <html
       lang="en"
       className={`${inter.variable} ${outfit.variable} ${jetbrains.variable} dark`}
+      suppressHydrationWarning
     >
       <head>
+        {/* Anti-FOUC Theme Script */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                const storedTheme = localStorage.getItem('sunil_portfolio_theme');
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                if (storedTheme === 'light' || (!storedTheme && !prefersDark)) {
+                  document.documentElement.classList.remove('dark');
+                  document.documentElement.classList.add('light');
+                } else {
+                  document.documentElement.classList.add('dark');
+                  document.documentElement.classList.remove('light');
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
@@ -165,15 +172,11 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify(professionalServiceJsonLd),
-          }}
-        />
       </head>
       <body className="font-sans antialiased bg-background text-gray-100 min-h-screen selection:bg-brand-green selection:text-black">
-        <LayoutWrapper>{children}</LayoutWrapper>
+        <ThemeProvider>
+          <LayoutWrapper>{children}</LayoutWrapper>
+        </ThemeProvider>
       </body>
     </html>
   );

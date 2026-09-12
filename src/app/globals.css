@@ -4,23 +4,46 @@
 
 :root {
   --background: #06070a;
-  --surface: #0d0f16;
+  --surface-50: #161922;
+  --surface-100: #12141c;
+  --surface-200: #0d0f16;
+  --surface-300: #090a0f;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
   --brand-green: #00e599;
   --brand-cyan: #00f0ff;
+  --card-border: rgba(255, 255, 255, 0.1);
+  --grid-line: rgba(255, 255, 255, 0.03);
+}
+
+html.light {
+  --background: #f8fafc;
+  --surface-50: #ffffff;
+  --surface-100: #f1f5f9;
+  --surface-200: #ffffff;
+  --surface-300: #f8fafc;
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --brand-green: #059669;
+  --brand-cyan: #0284c7;
+  --card-border: rgba(15, 23, 42, 0.08);
+  --grid-line: rgba(15, 23, 42, 0.04);
 }
 
 /* Custom smooth scroll behavior */
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
   background-color: var(--background);
 }
 
 body {
-  color: #e2e8f0;
+  color: var(--text-primary);
   background: var(--background);
   font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Custom sleek scrollbar */
@@ -29,7 +52,7 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #06070a;
+  background: var(--background);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -38,8 +61,13 @@ body {
   border: 1px solid rgba(0, 229, 153, 0.2);
 }
 
+html.light ::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border: 1px solid rgba(5, 150, 105, 0.2);
+}
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #00e599;
+  background: var(--brand-green);
 }
 
 /* Text selection highlight */

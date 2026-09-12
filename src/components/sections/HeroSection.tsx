@@ -40,7 +40,7 @@ export default function HeroSection() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-green" />
               </span>
               <span className="text-xs font-mono font-medium text-brand-green tracking-wide">
-                Available for SEO Projects & Strategy
+                SEO Executive • Available for Projects & Strategy
               </span>
             </motion.div>
 
@@ -65,7 +65,7 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-base sm:text-lg md:text-xl text-gray-300 mt-6 max-w-2xl font-normal leading-relaxed"
             >
-              I&apos;m <span className="text-white font-semibold">Sunil Kumar Bohara</span>, an SEO-focused digital professional from Nepal helping websites improve visibility, attract the right audience, and grow through organic search.
+              I&apos;m <span className="text-white font-semibold">Sunil Kumar Bohara</span>, an <strong className="text-brand-green font-semibold">SEO Executive</strong> based in Nepal helping websites improve visibility, capture search intent, and grow through data-backed organic search optimization.
             </motion.p>
 
             {/* CTAs */}
@@ -98,11 +98,11 @@ export default function HeroSection() {
               </div>
               <div className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-200/50 border border-white/5 hover:border-brand-cyan/30 hover:scale-[1.02] transition-all">
                 <TrendingUp className="w-4 h-4 text-brand-cyan" />
-                <span>Search Intent</span>
+                <span>GEO & AI Search</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-200/50 border border-white/5 hover:border-brand-green/30 hover:scale-[1.02] transition-all">
                 <Zap className="w-4 h-4 text-brand-green" />
-                <span>Core Web Vitals</span>
+                <span>AEO Answers</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-200/50 border border-white/5 hover:border-brand-cyan/30 hover:scale-[1.02] transition-all">
                 <ShieldCheck className="w-4 h-4 text-brand-cyan" />
