@@ -1,0 +1,26 @@
+[
+  {
+    "id": "page_home",
+    "title": "Home",
+    "slug": "home",
+    "content": "Home page main layout",
+    "status": "published",
+    "updatedAt": "2026-09-02T06:18:14.787Z"
+  },
+  {
+    "id": "page_about",
+    "title": "About",
+    "slug": "about",
+    "content": "About Sunil Kumar Bohara",
+    "status": "published",
+    "updatedAt": "2026-09-02T06:18:14.787Z"
+  },
+  {
+    "id": "page_contact",
+    "title": "Contact",
+    "slug": "contact",
+    "content": "Get in touch for SEO inquiries",
+    "status": "published",
+    "updatedAt": "2026-09-02T06:18:14.787Z"
+  }
+]

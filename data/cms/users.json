@@ -1,0 +1,12 @@
+[
+  {
+    "id": "usr_admin",
+    "name": "Sunil Kumar Bohara",
+    "email": "contact@sunilbohara.com",
+    "username": "admin",
+    "passwordHash": "$2b$10$GaGgHNwErBXiEck1P3/y6.0v7RBKo4Cnbuz81kXkqbI7zmdx7H76q",
+    "role": "super_admin",
+    "avatar": "/og-image.png",
+    "createdAt": "2026-09-02T06:18:14.780Z"
+  }
+]

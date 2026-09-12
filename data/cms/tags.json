@@ -1,0 +1,32 @@
+[
+  {
+    "id": "tag_cwv",
+    "name": "Core Web Vitals",
+    "slug": "core-web-vitals",
+    "createdAt": "2026-09-02T06:18:14.783Z"
+  },
+  {
+    "id": "tag_inp",
+    "name": "INP",
+    "slug": "inp",
+    "createdAt": "2026-09-02T06:18:14.783Z"
+  },
+  {
+    "id": "tag_schema",
+    "name": "Schema.org",
+    "slug": "schema-org",
+    "createdAt": "2026-09-02T06:18:14.783Z"
+  },
+  {
+    "id": "tag_intent",
+    "name": "Search Intent",
+    "slug": "search-intent",
+    "createdAt": "2026-09-02T06:18:14.783Z"
+  },
+  {
+    "id": "tag_eeat",
+    "name": "E-E-A-T",
+    "slug": "e-e-a-t",
+    "createdAt": "2026-09-02T06:18:14.783Z"
+  }
+]

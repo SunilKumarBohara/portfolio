@@ -1,0 +1,37 @@
+[
+  {
+    "id": "cat_technical",
+    "name": "Technical SEO",
+    "slug": "technical-seo",
+    "description": "Crawlability, indexing, and Core Web Vitals",
+    "createdAt": "2026-09-02T06:18:14.782Z"
+  },
+  {
+    "id": "cat_keyword",
+    "name": "Keyword Strategy",
+    "slug": "keyword-strategy",
+    "description": "Search intent & topical clustering",
+    "createdAt": "2026-09-02T06:18:14.782Z"
+  },
+  {
+    "id": "cat_content",
+    "name": "Content Optimization",
+    "slug": "content-optimization",
+    "description": "E-E-A-T & pillar page models",
+    "createdAt": "2026-09-02T06:18:14.782Z"
+  },
+  {
+    "id": "cat_vitals",
+    "name": "Core Web Vitals",
+    "slug": "core-web-vitals",
+    "description": "LCP, INP, and CLS performance tuning",
+    "createdAt": "2026-09-02T06:18:14.782Z"
+  },
+  {
+    "id": "cat_algo",
+    "name": "Algorithm Updates",
+    "slug": "algorithm-updates",
+    "description": "Search engine core update resilience",
+    "createdAt": "2026-09-02T06:18:14.782Z"
+  }
+]
