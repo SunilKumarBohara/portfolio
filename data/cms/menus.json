@@ -13,8 +13,8 @@
   },
   {
     "id": "menu_3",
-    "label": "Approach",
-    "url": "#approach",
+    "label": "Search Universe",
+    "url": "#universe",
     "order": 3
   },
   {
@@ -25,19 +25,19 @@
   },
   {
     "id": "menu_5",
-    "label": "Projects",
-    "url": "#projects",
+    "label": "Journey",
+    "url": "#journey",
     "order": 5
   },
   {
     "id": "menu_6",
-    "label": "SEO Lab",
-    "url": "#seo-lab",
+    "label": "Projects",
+    "url": "#projects",
     "order": 6
   },
   {
     "id": "menu_7",
-    "label": "Blog",
+    "label": "SEO Insights",
     "url": "/blog",
     "order": 7
   },

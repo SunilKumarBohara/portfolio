@@ -153,11 +153,11 @@ export function initDatabase() {
     writeJson("menus.json", [
       { id: "menu_1", label: "About", url: "#about", order: 1 },
       { id: "menu_2", label: "Services", url: "#services", order: 2 },
-      { id: "menu_3", label: "Approach", url: "#approach", order: 3 },
+      { id: "menu_3", label: "Search Universe", url: "#universe", order: 3 },
       { id: "menu_4", label: "Skills", url: "#skills", order: 4 },
-      { id: "menu_5", label: "Projects", url: "#projects", order: 5 },
-      { id: "menu_6", label: "SEO Lab", url: "#seo-lab", order: 6 },
-      { id: "menu_7", label: "Blog", url: "/blog", order: 7 },
+      { id: "menu_5", label: "Journey", url: "#journey", order: 5 },
+      { id: "menu_6", label: "Projects", url: "#projects", order: 6 },
+      { id: "menu_7", label: "SEO Insights", url: "/blog", order: 7 },
       { id: "menu_8", label: "Contact", url: "#contact", order: 8 },
     ]);
   }
@@ -173,9 +173,9 @@ export function initDatabase() {
       contactEmail: siteConfig.email,
       phone: "+977-9800000000",
       address: "Kathmandu, Nepal",
-      socialLinkedin: siteConfig.socials.linkedin || "",
-      socialGithub: siteConfig.socials.github || "",
-      socialTwitter: siteConfig.socials.twitter || "",
+      socialLinkedin: siteConfig.socials.linkedin,
+      socialGithub: siteConfig.socials.github,
+      socialTwitter: siteConfig.socials.twitter,
       socialWebsite: siteConfig.socials.website || "",
       defaultMetaTitle: siteConfig.seo.defaultTitle,
       defaultMetaDescription: siteConfig.seo.defaultDescription,
@@ -183,10 +183,10 @@ export function initDatabase() {
       robotsTxt: "User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /api/",
       googleAnalyticsId: "G-MEASUREMENT_ID",
       searchConsoleCode: "google-site-verification-code",
-      headerLogo: "SUNIL",
+      headerLogo: "SUNIL KUMAR BOHARA",
       headerCtaText: "Let's Talk",
       headerCtaUrl: "#contact",
-      footerText: "SEO Specialist & Digital Marketing Professional based in Nepal.",
+      footerText: "Building better search visibility through SEO, content, and modern web experiences.",
       copyrightText: `© ${new Date().getFullYear()} Sunil Kumar Bohara. All rights reserved.`,
     });
   }

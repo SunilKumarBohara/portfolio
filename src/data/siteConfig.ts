@@ -34,7 +34,7 @@ export const siteConfig: SiteConfig = {
   email: "sunilbohara3000@gmail.com",
   socials: {
     github: "https://github.com/SunilKumarBohara",
-    linkedin: "https://www.linkedin.com/feed/",
+    linkedin: "https://www.linkedin.com/in/sunil-kumar-bohara/",
     facebook: "https://www.facebook.com/sunilkumarbohara99",
     instagram: "https://www.instagram.com/sunilkumarbohara7/",
     twitter: "https://x.com/SunilBohara66",
