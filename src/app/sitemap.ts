@@ -25,6 +25,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
+      url: `${baseUrl}#universe`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}#approach`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -37,22 +43,22 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
+      url: `${baseUrl}#journey`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.85,
+    },
+    {
       url: `${baseUrl}#projects`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.9,
     },
     {
-      url: `${baseUrl}#seo-lab`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}#insights`,
+      url: `${baseUrl}/blog`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.85,
+      priority: 0.9,
     },
     {
       url: `${baseUrl}#contact`,
@@ -63,7 +69,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   ];
 
   const blogRoutes: MetadataRoute.Sitemap = blogPosts.map((post) => ({
-    url: `${baseUrl}/insights/${post.slug}`,
+    url: `${baseUrl}/blog/${post.slug}`,
     lastModified: new Date(),
     changeFrequency: "monthly",
     priority: 0.75,
