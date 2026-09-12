@@ -2,7 +2,7 @@
   {
     "id": "usr_admin",
     "name": "Sunil Kumar Bohara",
-    "email": "contact@sunilbohara.com",
+    "email": "contact@sunilkumarbohara.com",
     "username": "admin",
     "passwordHash": "$2b$10$GaGgHNwErBXiEck1P3/y6.0v7RBKo4Cnbuz81kXkqbI7zmdx7H76q",
     "role": "super_admin",

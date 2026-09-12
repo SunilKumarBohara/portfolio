@@ -78,7 +78,7 @@ export function initDatabase() {
     const superAdmin: User = {
       id: "usr_admin",
       name: "Sunil Kumar Bohara",
-      email: "contact@sunilbohara.com",
+      email: "contact@sunilkumarbohara.com",
       username: "admin",
       passwordHash: defaultPasswordHash,
       role: "super_admin",
@@ -124,7 +124,7 @@ export function initDatabase() {
       seoTitle: p.title,
       metaDescription: p.excerpt,
       focusKeyword: p.tags[0] || "SEO",
-      canonicalUrl: `https://sunilbohara.com/blog/${p.slug}`,
+      canonicalUrl: `https://sunilkumarbohara.com/blog/${p.slug}`,
       ogTitle: p.title,
       ogDescription: p.excerpt,
       ogImage: "/og-image.png",

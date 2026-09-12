@@ -38,10 +38,10 @@ export const siteConfig: SiteConfig = {
     facebook: "https://www.facebook.com/sunilkumarbohara99",
     instagram: "https://www.instagram.com/sunilkumarbohara7/",
     twitter: "https://x.com/SunilBohara66",
-    website: "https://sunilbohara.com",
+    website: "https://sunilkumarbohara.com",
   },
   seo: {
-    siteUrl: "https://sunilbohara.com",
+    siteUrl: "https://sunilkumarbohara.com",
     defaultTitle: "Sunil Kumar Bohara — SEO Executive | Technical SEO, GEO & AEO Nepal",
     titleTemplate: "%s | Sunil Kumar Bohara",
     defaultDescription:

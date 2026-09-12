@@ -334,7 +334,7 @@ export default function PostEditorPage() {
                 {formData.seoTitle || formData.title || "SEO Post Title"}
               </div>
               <div className="text-[11px] font-mono text-[#00e599] truncate">
-                https://sunilbohara.com/blog/{formData.slug || "example-post"}
+                https://sunilkumarbohara.com/blog/{formData.slug || "example-post"}
               </div>
               <div className="text-xs text-gray-300 line-clamp-2 leading-relaxed">
                 {formData.metaDescription ||
@@ -392,7 +392,7 @@ export default function PostEditorPage() {
                 type="text"
                 value={formData.canonicalUrl || ""}
                 onChange={(e) => setFormData({ ...formData, canonicalUrl: e.target.value })}
-                placeholder="https://sunilbohara.com/blog/..."
+                placeholder="https://sunilkumarbohara.com/blog/..."
                 className="w-full px-3 py-2 rounded-xl bg-surface-100 border border-white/10 text-xs text-white placeholder-gray-500 font-mono focus:outline-none focus:border-brand-green"
               />
             </div>

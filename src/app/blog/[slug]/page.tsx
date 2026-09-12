@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   const title = post.seoTitle || `${post.title} | ${settings.siteName}`;
   const description = post.metaDescription || post.excerpt;
-  const canonical = post.canonicalUrl || `https://sunilbohara.com/blog/${post.slug}`;
+  const canonical = post.canonicalUrl || `https://sunilkumarbohara.com/blog/${post.slug}`;
   const ogImage = post.ogImage || post.featuredImage || "/og-image.png";
 
   return {
@@ -76,22 +76,22 @@ export default function SingleBlogPostPage({ params }: Props) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt,
-    image: post.featuredImage || "https://sunilbohara.com/og-image.png",
+    image: post.featuredImage || "https://sunilkumarbohara.com/og-image.png",
     datePublished: post.date,
     dateModified: post.date,
     author: {
       "@type": "Person",
       name: post.authorName || "Sunil Kumar Bohara",
-      url: "https://sunilbohara.com",
+      url: "https://sunilkumarbohara.com",
     },
     publisher: {
       "@type": "Person",
       name: "Sunil Kumar Bohara",
-      url: "https://sunilbohara.com",
+      url: "https://sunilkumarbohara.com",
     },
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://sunilbohara.com/blog/${post.slug}`,
+      "@id": `https://sunilkumarbohara.com/blog/${post.slug}`,
     },
     keywords: post.tags?.join(", "),
   };
