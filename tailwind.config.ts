@@ -10,23 +10,26 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#06070a",
+        background: "var(--background)",
         surface: {
-          50: "#161922",
-          100: "#12141c",
-          200: "#0d0f16",
-          300: "#090a0f",
-          DEFAULT: "#0d0f16",
+          50: "var(--surface-50)",
+          100: "var(--surface-100)",
+          200: "var(--surface-200)",
+          300: "var(--surface-300)",
+          DEFAULT: "var(--surface-200)",
         },
         brand: {
-          emerald: "#10b981",
-          teal: "#06b6d4",
-          cyan: "#00f0ff",
-          green: "#00e599",
-          lime: "#84cc16",
-          accent: "#00e599",
+          blue: "var(--brand-blue)",
+          cyan: "var(--brand-cyan)",
+          red: "var(--brand-red)",
+          accent: "var(--brand-accent)",
+          // backward compatibility aliases to maintain stability
+          green: "var(--brand-blue)",
+          emerald: "var(--brand-blue)",
+          teal: "var(--brand-cyan)",
+          lime: "var(--brand-cyan)",
         },
-        borderGlow: "rgba(0, 229, 153, 0.2)",
+        borderGlow: "var(--glow-primary)",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "system-ui", "sans-serif"],
@@ -36,7 +39,7 @@ const config: Config = {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "cyber-grid": "linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px)",
-        "gradient-glow": "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(0, 229, 153, 0.08), transparent 40%)",
+        "gradient-glow": "radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(59, 130, 246, 0.12), transparent 40%)",
       },
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
@@ -61,10 +64,11 @@ const config: Config = {
         },
       },
       boxShadow: {
-        "glow-sm": "0 0 15px -3px rgba(0, 229, 153, 0.3)",
-        "glow-md": "0 0 25px -5px rgba(0, 229, 153, 0.4)",
-        "glow-lg": "0 0 45px -5px rgba(0, 229, 153, 0.35)",
-        "glow-cyan": "0 0 30px -5px rgba(0, 240, 255, 0.35)",
+        "glow-sm": "0 0 15px -3px rgba(59, 130, 246, 0.35)",
+        "glow-md": "0 0 25px -5px rgba(59, 130, 246, 0.45)",
+        "glow-lg": "0 0 45px -5px rgba(59, 130, 246, 0.4)",
+        "glow-red": "0 0 25px -5px rgba(239, 68, 68, 0.45)",
+        "glow-cyan": "0 0 30px -5px rgba(56, 189, 248, 0.4)",
         "glass-card": "0 8px 32px 0 rgba(0, 0, 0, 0.37)",
       },
     },

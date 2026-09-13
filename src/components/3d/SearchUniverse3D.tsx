@@ -2,7 +2,7 @@
 
 import React, { useRef, useState, useMemo } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
-import { Float, Html, OrbitControls } from "@react-three/drei";
+import { Html, OrbitControls } from "@react-three/drei";
 import * as THREE from "three";
 
 export type SearchPlanetKey = "seo" | "geo" | "aeo";
@@ -12,24 +12,31 @@ interface SearchUniverse3DProps {
   onSelectPlanet: (planet: SearchPlanetKey) => void;
 }
 
-// Central Glowing Search Core
+// Glowing Central SEARCH Core
 function CentralSearchCore() {
   const coreRef = useRef<THREE.Mesh>(null);
-  const glowRingRef = useRef<THREE.Mesh>(null);
-  const outerRingRef = useRef<THREE.Mesh>(null);
+  const coronaRef = useRef<THREE.Mesh>(null);
+  const blueRingRef = useRef<THREE.Mesh>(null);
+  const redRingRef = useRef<THREE.Mesh>(null);
 
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime();
     if (coreRef.current) {
-      coreRef.current.rotation.y = t * 0.4;
-      coreRef.current.rotation.x = t * 0.2;
+      coreRef.current.rotation.y = t * 0.35;
+      coreRef.current.rotation.x = t * 0.18;
     }
-    if (glowRingRef.current) {
-      glowRingRef.current.rotation.z = -t * 0.3;
+    if (coronaRef.current) {
+      coronaRef.current.rotation.z = -t * 0.25;
+      const s = 1.35 + Math.sin(t * 2) * 0.05;
+      coronaRef.current.scale.set(s, s, s);
     }
-    if (outerRingRef.current) {
-      outerRingRef.current.rotation.x = t * 0.25;
-      outerRingRef.current.rotation.y = -t * 0.15;
+    if (blueRingRef.current) {
+      blueRingRef.current.rotation.z = -t * 0.3;
+      blueRingRef.current.rotation.x = Math.PI / 2.2 + Math.sin(t * 0.5) * 0.1;
+    }
+    if (redRingRef.current) {
+      redRingRef.current.rotation.x = Math.PI / 3.2;
+      redRingRef.current.rotation.y = t * 0.25;
     }
   });
 
@@ -37,39 +44,39 @@ function CentralSearchCore() {
     <group>
       {/* Primary Glowing Core Sphere */}
       <mesh ref={coreRef}>
-        <sphereGeometry args={[1.3, 32, 32]} />
+        <sphereGeometry args={[1.25, 32, 32]} />
         <meshStandardMaterial
-          color="#00e599"
-          emissive="#00e599"
-          emissiveIntensity={1.8}
-          roughness={0.15}
+          color="#2563eb"
+          emissive="#1d4ed8"
+          emissiveIntensity={2.0}
+          roughness={0.1}
           metalness={0.8}
-          wireframe={false}
         />
       </mesh>
 
       {/* Pulsing Wireframe Corona */}
-      <mesh scale={[1.4, 1.4, 1.4]}>
-        <sphereGeometry args={[1.3, 18, 18]} />
-        <meshBasicMaterial color="#00f0ff" wireframe transparent opacity={0.35} />
+      <mesh ref={coronaRef}>
+        <icosahedronGeometry args={[1.35, 2]} />
+        <meshBasicMaterial color="#38bdf8" wireframe transparent opacity={0.4} />
       </mesh>
 
       {/* Central Core Label */}
-      <Html position={[0, 0, 0]} center distanceFactor={14} pointerEvents="none">
-        <div className="px-2.5 py-1 rounded-full bg-black/90 border border-brand-green/60 text-[11px] font-mono text-brand-green font-bold shadow-glow-sm select-none tracking-wider whitespace-nowrap">
-          SEARCH CORE
+      <Html position={[0, 0, 0]} center distanceFactor={13} pointerEvents="none">
+        <div className="px-3 py-1 rounded-full bg-black/90 border border-blue-500/70 text-[11px] font-mono text-cyan-300 font-extrabold shadow-[0_0_20px_rgba(59,130,246,0.6)] select-none tracking-widest whitespace-nowrap">
+          SEARCH
         </div>
       </Html>
 
-      {/* Equatorial Energy Rings */}
-      <mesh ref={glowRingRef} rotation={[Math.PI / 2.2, 0, 0]}>
-        <ringGeometry args={[1.8, 1.95, 64]} />
-        <meshBasicMaterial color="#00e599" transparent opacity={0.6} side={THREE.DoubleSide} />
+      {/* Blue Energy Ring */}
+      <mesh ref={blueRingRef}>
+        <ringGeometry args={[1.7, 1.85, 64]} />
+        <meshBasicMaterial color="#38bdf8" transparent opacity={0.65} side={THREE.DoubleSide} />
       </mesh>
 
-      <mesh ref={outerRingRef} rotation={[Math.PI / 3, 0.4, 0]}>
-        <ringGeometry args={[2.2, 2.3, 64]} />
-        <meshBasicMaterial color="#00f0ff" transparent opacity={0.4} side={THREE.DoubleSide} />
+      {/* Red Accent Orbital Ring */}
+      <mesh ref={redRingRef}>
+        <ringGeometry args={[2.05, 2.15, 64]} />
+        <meshBasicMaterial color="#ef4444" transparent opacity={0.45} side={THREE.DoubleSide} />
       </mesh>
     </group>
   );
@@ -81,9 +88,11 @@ function OrbitingPlanet({
   radiusX,
   radiusZ,
   speed,
+  inclination = 0,
   color,
+  accentColor,
   label,
-  sublabel,
+  fullName,
   size = 0.55,
   activePlanet,
   onSelectPlanet,
@@ -92,15 +101,18 @@ function OrbitingPlanet({
   radiusX: number;
   radiusZ: number;
   speed: number;
+  inclination?: number;
   color: string;
+  accentColor: string;
   label: string;
-  sublabel: string;
+  fullName: string;
   size?: number;
   activePlanet: SearchPlanetKey;
   onSelectPlanet: (planet: SearchPlanetKey) => void;
 }) {
   const planetRef = useRef<THREE.Group>(null);
   const meshRef = useRef<THREE.Mesh>(null);
+  const ringRef = useRef<THREE.Mesh>(null);
   const [hovered, setHovered] = useState(false);
   const isSelected = activePlanet === planetKey;
 
@@ -108,24 +120,28 @@ function OrbitingPlanet({
   useFrame(({ clock }) => {
     const t = clock.getElapsedTime() * speed;
     if (planetRef.current) {
-      const x = Math.cos(t) * radiusX;
-      const z = Math.sin(t) * radiusZ;
-      planetRef.current.position.set(x, Math.sin(t * 2) * 0.4, z);
+      const rawX = Math.cos(t) * radiusX;
+      const rawZ = Math.sin(t) * radiusZ;
+      const y = Math.sin(t) * (radiusX * Math.sin(inclination)) + Math.sin(t * 2) * 0.25;
+      planetRef.current.position.set(rawX, y, rawZ);
     }
     if (meshRef.current) {
       meshRef.current.rotation.y += 0.02;
+    }
+    if (ringRef.current) {
+      ringRef.current.rotation.z += 0.015;
     }
   });
 
   return (
     <group>
-      {/* Orbit Path Visual Line */}
-      <mesh rotation={[Math.PI / 2, 0, 0]}>
-        <ringGeometry args={[radiusX - 0.03, radiusX + 0.03, 96]} />
+      {/* Tilted Elliptical Orbit Line */}
+      <mesh rotation={[Math.PI / 2 - inclination, 0, 0]}>
+        <ringGeometry args={[radiusX - 0.025, radiusX + 0.025, 96]} />
         <meshBasicMaterial
           color={color}
           transparent
-          opacity={isSelected ? 0.45 : 0.15}
+          opacity={isSelected ? 0.55 : 0.18}
           side={THREE.DoubleSide}
         />
       </mesh>
@@ -137,38 +153,43 @@ function OrbitingPlanet({
           onPointerOver={() => setHovered(true)}
           onPointerOut={() => setHovered(false)}
           onClick={() => onSelectPlanet(planetKey)}
-          scale={hovered || isSelected ? 1.3 : 1.0}
+          scale={hovered || isSelected ? 1.35 : 1.0}
         >
-          <sphereGeometry args={[size, 24, 24]} />
+          <sphereGeometry args={[size, 32, 32]} />
           <meshStandardMaterial
             color={color}
             emissive={color}
-            emissiveIntensity={hovered || isSelected ? 2.2 : 1.2}
-            roughness={0.2}
-            metalness={0.7}
+            emissiveIntensity={hovered || isSelected ? 2.4 : 1.3}
+            roughness={0.15}
+            metalness={0.75}
           />
         </mesh>
 
-        {/* Outer Orbital Atmosphere Ring */}
-        <mesh rotation={[Math.PI / 2.5, 0, 0]}>
-          <ringGeometry args={[size * 1.3, size * 1.5, 32]} />
-          <meshBasicMaterial color={color} transparent opacity={0.5} side={THREE.DoubleSide} />
+        {/* Planet Ring */}
+        <mesh ref={ringRef} rotation={[Math.PI / 2.6, 0, 0]}>
+          <ringGeometry args={[size * 1.3, size * 1.55, 32]} />
+          <meshBasicMaterial color={accentColor} transparent opacity={0.6} side={THREE.DoubleSide} />
         </mesh>
 
-        {/* Planet Floating Label */}
-        <Html position={[0, size + 0.4, 0]} center distanceFactor={14}>
+        {/* Planet Floating Tag */}
+        <Html position={[0, size + 0.45, 0]} center distanceFactor={13}>
           <button
             onClick={() => onSelectPlanet(planetKey)}
-            className={`px-2.5 py-1 rounded-xl text-left backdrop-blur-md transition-all duration-300 select-none whitespace-nowrap cursor-pointer ${
+            className={`px-3 py-1.5 rounded-xl text-left backdrop-blur-xl transition-all duration-300 select-none whitespace-nowrap cursor-pointer ${
               isSelected
-                ? "bg-black/90 border-2 border-white shadow-glow-md scale-110"
-                : "bg-black/75 border border-white/20 hover:border-white/60 hover:scale-105"
+                ? "bg-black/95 border-2 border-white shadow-[0_0_25px_rgba(255,255,255,0.4)] scale-110"
+                : "bg-black/80 border border-white/20 hover:border-white/70 hover:scale-105"
             }`}
           >
-            <div className="text-[11px] font-bold font-display leading-tight" style={{ color }}>
-              {label}
+            <div className="flex items-center gap-1.5">
+              <span className="w-2 h-2 rounded-full" style={{ backgroundColor: color }} />
+              <span className="text-xs font-black font-display leading-tight tracking-wider" style={{ color }}>
+                {label}
+              </span>
             </div>
-            <div className="text-[9px] font-mono text-gray-300">{sublabel}</div>
+            <div className="text-[9px] font-mono text-gray-300 truncate max-w-[140px] mt-0.5">
+              {hovered || isSelected ? fullName : label}
+            </div>
           </button>
         </Html>
       </group>
@@ -177,7 +198,7 @@ function OrbitingPlanet({
 }
 
 // Background Starfield Particles
-function CosmosParticles({ count = 350 }) {
+function CosmosParticles({ count = 280 }) {
   const points = useMemo(() => {
     const coords = new Float32Array(count * 3);
     for (let i = 0; i < count * 3; i += 3) {
@@ -192,7 +213,7 @@ function CosmosParticles({ count = 350 }) {
 
   useFrame(({ clock }) => {
     if (pointsRef.current) {
-      pointsRef.current.rotation.y = clock.getElapsedTime() * 0.02;
+      pointsRef.current.rotation.y = clock.getElapsedTime() * 0.015;
     }
   });
 
@@ -206,7 +227,7 @@ function CosmosParticles({ count = 350 }) {
           itemSize={3}
         />
       </bufferGeometry>
-      <pointsMaterial size={0.06} color="#00f0ff" transparent opacity={0.65} />
+      <pointsMaterial size={0.065} color="#38bdf8" transparent opacity={0.6} />
     </points>
   );
 }
@@ -216,56 +237,66 @@ function UniverseScene({ activePlanet, onSelectPlanet }: SearchUniverse3DProps) 
   const { camera } = useThree();
 
   useFrame(({ mouse }) => {
-    camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouse.x * 2.5, 0.04);
-    camera.position.y = THREE.MathUtils.lerp(camera.position.y, 4 + mouse.y * 1.5, 0.04);
+    // Subtle, smooth camera parallax lerp
+    camera.position.x = THREE.MathUtils.lerp(camera.position.x, mouse.x * 2.2, 0.04);
+    camera.position.y = THREE.MathUtils.lerp(camera.position.y, 4.5 + mouse.y * 1.2, 0.04);
     camera.lookAt(0, 0, 0);
   });
 
   return (
     <>
-      <ambientLight intensity={0.4} />
-      <pointLight position={[0, 0, 0]} intensity={4.5} color="#00e599" distance={15} />
-      <pointLight position={[10, 10, 10]} intensity={1.2} color="#00f0ff" />
-      <pointLight position={[-10, -10, -10]} intensity={0.8} color="#10b981" />
+      <ambientLight intensity={0.6} />
+      <pointLight position={[0, 0, 0]} intensity={5} color="#3b82f6" distance={16} />
+      <pointLight position={[10, 10, 10]} intensity={1.5} color="#ef4444" />
+      <pointLight position={[-10, -10, -10]} intensity={1.2} color="#38bdf8" />
 
-      <CosmosParticles count={300} />
+      <CosmosParticles count={260} />
       <CentralSearchCore />
 
-      {/* Orbit 1: SEO (Search Engine Optimization) */}
+      {/* Orbit 1: SEO Planet (Electric Blue) */}
       <OrbitingPlanet
         planetKey="seo"
-        radiusX={4.2}
-        radiusZ={3.8}
-        speed={0.45}
-        color="#00e599"
+        radiusX={4.4}
+        radiusZ={3.9}
+        speed={0.42}
+        inclination={0.12}
+        color="#3b82f6"
+        accentColor="#38bdf8"
         label="SEO"
-        sublabel="Search Engine Opt."
+        fullName="Search Engine Optimization"
+        size={0.62}
         activePlanet={activePlanet}
         onSelectPlanet={onSelectPlanet}
       />
 
-      {/* Orbit 2: GEO (Generative Engine Optimization) */}
+      {/* Orbit 2: GEO Planet (Purple / AI Engine) */}
       <OrbitingPlanet
         planetKey="geo"
-        radiusX={6.4}
+        radiusX={6.6}
         radiusZ={5.8}
-        speed={0.32}
-        color="#00f0ff"
+        speed={0.3}
+        inclination={-0.15}
+        color="#a855f7"
+        accentColor="#c084fc"
         label="GEO"
-        sublabel="Generative AI Engine"
+        fullName="Generative Engine Opt."
+        size={0.58}
         activePlanet={activePlanet}
         onSelectPlanet={onSelectPlanet}
       />
 
-      {/* Orbit 3: AEO (Answer Engine Optimization) */}
+      {/* Orbit 3: AEO Planet (Crimson Red / Direct Answer Engine) */}
       <OrbitingPlanet
         planetKey="aeo"
-        radiusX={8.6}
+        radiusX={8.8}
         radiusZ={7.8}
-        speed={0.22}
-        color="#38bdf8"
+        speed={0.2}
+        inclination={0.08}
+        color="#ef4444"
+        accentColor="#f87171"
         label="AEO"
-        sublabel="Answer Engine Opt."
+        fullName="Answer Engine Optimization"
+        size={0.55}
         activePlanet={activePlanet}
         onSelectPlanet={onSelectPlanet}
       />
@@ -273,9 +304,9 @@ function UniverseScene({ activePlanet, onSelectPlanet }: SearchUniverse3DProps) 
       <OrbitControls
         enableZoom={false}
         enablePan={false}
-        maxPolarAngle={Math.PI / 1.8}
-        minPolarAngle={Math.PI / 3.2}
-        rotateSpeed={0.4}
+        maxPolarAngle={Math.PI / 1.7}
+        minPolarAngle={Math.PI / 3.4}
+        rotateSpeed={0.35}
       />
     </>
   );
@@ -288,7 +319,7 @@ export default function SearchUniverse3D({
   return (
     <div className="w-full h-full min-h-[460px] sm:min-h-[540px] relative">
       <Canvas
-        camera={{ position: [0, 4.5, 11], fov: 48 }}
+        camera={{ position: [0, 4.8, 11], fov: 48 }}
         gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
         dpr={[1, 2]}
       >

@@ -57,7 +57,7 @@ export default function BlogSection() {
       className="relative py-24 sm:py-32 bg-surface-300 border-t border-white/5 overflow-hidden"
     >
       {/* Glow */}
-      <div className="absolute top-1/3 left-10 w-96 h-96 bg-brand-green/5 blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/3 left-10 w-96 h-96 bg-brand-blue/5 blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal animation="fade-up">
@@ -79,8 +79,8 @@ export default function BlogSection() {
                   onClick={() => setSelectedCat(cat)}
                   className={`px-4 py-2 rounded-full text-xs font-mono transition-all duration-300 border ${
                     isActive
-                      ? "bg-brand-green/20 text-brand-green border-brand-green/60 shadow-glow-sm"
-                      : "bg-surface-200 text-gray-400 border-white/10 hover:text-white hover:border-brand-green/30"
+                      ? "bg-brand-blue/20 text-brand-cyan border-brand-blue/60 shadow-glow-sm font-bold"
+                      : "bg-surface-200 text-text-muted border-white/10 hover:text-text-primary hover:border-brand-blue/30"
                   }`}
                 >
                   {cat}
@@ -96,31 +96,31 @@ export default function BlogSection() {
             <ScrollReveal key={post.id} animation="fade-up" delay={idx * 0.1}>
               <GlassCard
                 onClick={() => setActiveArticle(post)}
-                className="h-full flex flex-col justify-between p-8 border-white/10 hover:border-brand-green/40 cursor-pointer group"
+                className="h-full flex flex-col justify-between p-8 border-white/10 hover:border-brand-blue/40 cursor-pointer group"
               >
                 <div>
                   {/* Category & Meta */}
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-[11px] font-mono">
+                    <span className="px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-[11px] font-mono font-medium">
                       {post.category}
                     </span>
-                    <div className="flex items-center gap-3 text-[11px] font-mono text-gray-500">
+                    <div className="flex items-center gap-3 text-[11px] font-mono text-text-muted">
                       <span className="flex items-center gap-1">
-                        <Calendar className="w-3 h-3 text-gray-500" />
+                        <Calendar className="w-3 h-3 text-text-muted" />
                         {post.date}
                       </span>
                       <span className="flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-gray-500" />
+                        <Clock className="w-3 h-3 text-text-muted" />
                         {post.readingTime}
                       </span>
                     </div>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-green transition-colors mb-3 font-display leading-tight">
+                  <h3 className="text-xl sm:text-2xl font-bold text-text-primary group-hover:text-brand-cyan transition-colors mb-3 font-display leading-tight">
                     {post.title}
                   </h3>
 
-                  <p className="text-xs text-gray-400 leading-relaxed mb-6 line-clamp-3">
+                  <p className="text-xs text-text-muted leading-relaxed mb-6 line-clamp-3">
                     {post.excerpt}
                   </p>
                 </div>
@@ -131,14 +131,14 @@ export default function BlogSection() {
                     {post.tags?.slice(0, 2).map((t) => (
                       <span
                         key={t}
-                        className="px-2 py-0.5 rounded bg-surface-100 text-[10px] font-mono text-gray-400 border border-white/5"
+                        className="px-2 py-0.5 rounded bg-surface-100 text-[10px] font-mono text-text-muted border border-white/5"
                       >
                         #{t}
                       </span>
                     ))}
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-brand-cyan group-hover:text-brand-green transition-colors font-semibold">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-brand-cyan group-hover:text-brand-blue transition-colors font-semibold">
                     <span>Quick Preview</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </div>
@@ -152,7 +152,7 @@ export default function BlogSection() {
         <ScrollReveal animation="fade-up" delay={0.2} className="text-center pt-12">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-surface-200 hover:bg-surface-100 border border-white/10 text-xs font-mono text-white hover:text-brand-green hover:border-brand-green/40 transition-all shadow-glass-card group"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-surface-200 hover:bg-surface-100 border border-white/10 text-xs font-mono text-text-primary hover:text-brand-cyan hover:border-brand-blue/40 transition-all shadow-glass-card group"
           >
             <span>Browse Full Insights Library</span>
             <ExternalLink className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
@@ -169,12 +169,12 @@ export default function BlogSection() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.25 }}
-              className="relative w-full max-w-3xl bg-surface-300 border border-brand-green/40 rounded-3xl p-6 sm:p-10 shadow-2xl max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-3xl bg-surface-300 border border-brand-blue/40 rounded-3xl p-6 sm:p-10 shadow-2xl max-h-[90vh] overflow-y-auto"
             >
               {/* Close Button */}
               <button
                 onClick={() => setActiveArticle(null)}
-                className="absolute top-6 right-6 p-2 rounded-xl bg-surface-100 border border-white/10 text-gray-400 hover:text-white hover:border-brand-green focus:outline-none"
+                className="absolute top-6 right-6 p-2 rounded-xl bg-surface-100 border border-white/10 text-text-muted hover:text-text-primary hover:border-brand-blue focus:outline-none"
                 aria-label="Close preview"
               >
                 <X className="w-5 h-5" />
@@ -182,23 +182,23 @@ export default function BlogSection() {
 
               {/* Category & Read Time */}
               <div className="flex items-center gap-2 mb-3">
-                <span className="px-3 py-1 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-xs font-mono">
+                <span className="px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-xs font-mono font-medium">
                   {activeArticle.category}
                 </span>
-                <span className="text-xs font-mono text-gray-400">
+                <span className="text-xs font-mono text-text-muted">
                   {activeArticle.readingTime}
                 </span>
               </div>
 
               {/* Insight Title */}
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-white font-display mb-4 leading-tight">
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-text-primary font-display mb-4 leading-tight">
                 {activeArticle.title}
               </h2>
 
               {/* Author & Meta */}
-              <div className="flex items-center gap-3 pb-6 mb-6 border-b border-white/10 text-xs font-mono text-gray-400">
-                <div className="flex items-center gap-1.5 text-white">
-                  <User className="w-3.5 h-3.5 text-brand-green" />
+              <div className="flex items-center gap-3 pb-6 mb-6 border-b border-white/10 text-xs font-mono text-text-muted">
+                <div className="flex items-center gap-1.5 text-text-primary">
+                  <User className="w-3.5 h-3.5 text-brand-cyan" />
                   <span className="font-semibold">Sunil Kumar Bohara</span>
                 </div>
                 <span>•</span>
@@ -208,15 +208,15 @@ export default function BlogSection() {
               </div>
 
               {/* Short Introduction */}
-              <div className="p-4 rounded-xl bg-surface-200/80 border border-white/5 mb-6 text-sm text-gray-300 leading-relaxed font-sans">
-                <strong className="text-white block mb-1 font-mono text-xs uppercase tracking-wider text-brand-green">
+              <div className="p-4 rounded-xl bg-surface-200/80 border border-white/5 mb-6 text-sm text-text-muted leading-relaxed font-sans">
+                <strong className="text-text-primary block mb-1 font-mono text-xs uppercase tracking-wider text-brand-cyan">
                   Introduction:
                 </strong>
                 {activeArticle.excerpt}
               </div>
 
               {/* Main Useful Written Content */}
-              <div className="space-y-4 text-sm sm:text-base text-gray-300 leading-relaxed font-sans whitespace-pre-line">
+              <div className="space-y-4 text-sm sm:text-base text-text-muted leading-relaxed font-sans whitespace-pre-line">
                 {activeArticle.content}
               </div>
 
@@ -227,7 +227,7 @@ export default function BlogSection() {
                   {activeArticle.tags?.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2.5 py-1 rounded-lg bg-surface-100 text-xs font-mono text-gray-300 border border-white/10"
+                      className="px-2.5 py-1 rounded-lg bg-surface-100 text-xs font-mono text-text-muted border border-white/10"
                     >
                       #{tag}
                     </span>
@@ -236,7 +236,7 @@ export default function BlogSection() {
 
                 <Link
                   href={`/blog/${activeArticle.slug}`}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-surface-300 text-xs font-bold shadow-glow-sm hover:brightness-110 flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-brand-cyan text-white text-xs font-bold shadow-glow-sm hover:brightness-110 flex items-center gap-2"
                 >
                   <span>Read Full Insight</span>
                   <ArrowRight className="w-4 h-4" />

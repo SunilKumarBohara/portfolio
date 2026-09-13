@@ -36,14 +36,14 @@ export default function ThemeToggle({ className, variant = "button" }: ThemeTogg
       <button
         onClick={toggleNext}
         className={cn(
-          "relative p-2 rounded-xl bg-surface-100/80 hover:bg-surface-50 border border-white/10 dark:border-white/10 light:border-slate-300 text-gray-300 hover:text-brand-green transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green",
+          "relative p-2 rounded-xl bg-surface-100/80 hover:bg-surface-50 border border-white/10 text-text-secondary hover:text-brand-blue transition-all duration-300 shadow-sm focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue",
           className
         )}
-        title={`Current theme: ${theme} (Click to toggle)`}
-        aria-label="Toggle Theme"
+        title={`Theme: ${theme} (Click: Dark → Light → System)`}
+        aria-label="Toggle Theme Mode"
       >
         {resolvedTheme === "dark" ? (
-          <Moon className="w-4 h-4 text-brand-green transition-transform duration-300 rotate-0" />
+          <Moon className="w-4 h-4 text-brand-cyan transition-transform duration-300 rotate-0" />
         ) : (
           <Sun className="w-4 h-4 text-amber-500 transition-transform duration-300 rotate-90" />
         )}
@@ -56,16 +56,16 @@ export default function ThemeToggle({ className, variant = "button" }: ThemeTogg
       <button
         type="button"
         onClick={() => setOpen(!open)}
-        className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-100/80 border border-white/10 text-xs font-mono text-gray-300 hover:text-white transition-all"
+        className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-surface-100/80 border border-white/10 text-xs font-mono text-text-secondary hover:text-text-primary transition-all"
         aria-label="Select Theme"
       >
         {resolvedTheme === "dark" ? (
-          <Moon className="w-3.5 h-3.5 text-brand-green" />
+          <Moon className="w-3.5 h-3.5 text-brand-cyan" />
         ) : (
           <Sun className="w-3.5 h-3.5 text-amber-500" />
         )}
         <span className="capitalize">{theme}</span>
-        <ChevronDown className="w-3 h-3 text-gray-500" />
+        <ChevronDown className="w-3 h-3 text-text-muted" />
       </button>
 
       {open && (
@@ -77,7 +77,7 @@ export default function ThemeToggle({ className, variant = "button" }: ThemeTogg
             }}
             className={cn(
               "w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-left transition-colors",
-              theme === "dark" ? "bg-brand-green/20 text-brand-green font-bold" : "text-gray-300 hover:bg-white/5"
+              theme === "dark" ? "bg-brand-blue/20 text-brand-cyan font-bold" : "text-text-secondary hover:bg-white/5"
             )}
           >
             <Moon className="w-3.5 h-3.5" />
@@ -90,7 +90,7 @@ export default function ThemeToggle({ className, variant = "button" }: ThemeTogg
             }}
             className={cn(
               "w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-left transition-colors",
-              theme === "light" ? "bg-brand-green/20 text-brand-green font-bold" : "text-gray-300 hover:bg-white/5"
+              theme === "light" ? "bg-brand-blue/20 text-brand-blue font-bold" : "text-text-secondary hover:bg-white/5"
             )}
           >
             <Sun className="w-3.5 h-3.5" />
@@ -103,7 +103,7 @@ export default function ThemeToggle({ className, variant = "button" }: ThemeTogg
             }}
             className={cn(
               "w-full flex items-center gap-2 px-2.5 py-1.5 rounded-lg text-left transition-colors",
-              theme === "system" ? "bg-brand-green/20 text-brand-green font-bold" : "text-gray-300 hover:bg-white/5"
+              theme === "system" ? "bg-brand-blue/20 text-brand-cyan font-bold" : "text-text-secondary hover:bg-white/5"
             )}
           >
             <Laptop className="w-3.5 h-3.5" />

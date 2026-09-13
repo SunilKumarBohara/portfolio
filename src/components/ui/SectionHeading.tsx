@@ -33,9 +33,9 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.5 }}
-          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-100/90 border border-brand-green/30 text-xs font-mono tracking-wider text-brand-green uppercase mb-4 shadow-glow-sm"
+          className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-100/90 border border-brand-blue/30 text-xs font-mono tracking-wider text-brand-cyan uppercase mb-4 shadow-sm"
         >
-          <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
+          <span className="w-2 h-2 rounded-full bg-brand-blue animate-pulse" />
           {badge}
         </motion.div>
       )}
@@ -45,7 +45,7 @@ export default function SectionHeading({
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6, delay: 0.1 }}
-        className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white max-w-3xl leading-[1.15]"
+        className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-text-primary max-w-3xl leading-[1.15] font-display"
       >
         {title}
       </motion.h2>
@@ -56,7 +56,7 @@ export default function SectionHeading({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-50px" }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-base sm:text-lg text-gray-400 mt-4 max-w-2xl font-normal leading-relaxed"
+          className="text-base sm:text-lg text-text-secondary mt-4 max-w-2xl font-normal leading-relaxed"
         >
           {subtitle}
         </motion.p>

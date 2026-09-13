@@ -19,17 +19,17 @@ export default function SeoEcosystem3D() {
   const outerRingRef = useRef<THREE.Group>(null);
   const particlesRef = useRef<THREE.Points>(null);
 
-  // Define orbital SEO nodes
+  // Define orbital SEO nodes with Blue + Red identity
   const nodes: NodeData[] = useMemo(
     () => [
-      { position: [2.6, 1.2, 0.5], color: "#00f0ff", size: 0.22, label: "Indexing" },
-      { position: [-2.4, 1.5, -0.6], color: "#00e599", size: 0.25, label: "Core Web Vitals" },
-      { position: [2.2, -1.4, 0.8], color: "#10b981", size: 0.2, label: "Search Intent" },
-      { position: [-2.7, -1.1, 0.4], color: "#06b6d4", size: 0.22, label: "SERP Dominance" },
-      { position: [0.3, 2.5, -0.8], color: "#00f0ff", size: 0.18, label: "Schema Graph" },
-      { position: [-0.4, -2.4, 0.7], color: "#00e599", size: 0.22, label: "Topical Authority" },
-      { position: [1.8, 0.2, -2.0], color: "#38bdf8", size: 0.19, label: "Crawl Budget" },
-      { position: [-1.9, 0.3, 2.0], color: "#34d399", size: 0.21, label: "Organic Growth" },
+      { position: [2.6, 1.2, 0.5], color: "#38bdf8", size: 0.22, label: "Indexing" },
+      { position: [-2.4, 1.5, -0.6], color: "#3b82f6", size: 0.25, label: "Core Web Vitals" },
+      { position: [2.2, -1.4, 0.8], color: "#ef4444", size: 0.2, label: "Search Intent" },
+      { position: [-2.7, -1.1, 0.4], color: "#60a5fa", size: 0.22, label: "SERP Dominance" },
+      { position: [0.3, 2.5, -0.8], color: "#38bdf8", size: 0.18, label: "Schema Graph" },
+      { position: [-0.4, -2.4, 0.7], color: "#ef4444", size: 0.22, label: "Topical Authority" },
+      { position: [1.8, 0.2, -2.0], color: "#2563eb", size: 0.19, label: "Crawl Budget" },
+      { position: [-1.9, 0.3, 2.0], color: "#f43f5e", size: 0.21, label: "Organic Growth" },
     ],
     []
   );
@@ -39,8 +39,8 @@ export default function SeoEcosystem3D() {
   const { particlePositions, particleColors } = useMemo(() => {
     const positions = new Float32Array(particleCount * 3);
     const colors = new Float32Array(particleCount * 3);
-    const colorA = new THREE.Color("#00e599");
-    const colorB = new THREE.Color("#00f0ff");
+    const colorA = new THREE.Color("#3b82f6");
+    const colorB = new THREE.Color("#ef4444");
 
     for (let i = 0; i < particleCount; i++) {
       const radius = 2.5 + Math.random() * 4.5;
@@ -107,16 +107,16 @@ export default function SeoEcosystem3D() {
     <group ref={groupRef}>
       {/* Central Search Engine Core */}
       <Float speed={2} rotationIntensity={0.6} floatIntensity={0.8}>
-        {/* Outer Wireframe Icosahedron */}
+        {/* Outer Wireframe Octahedron */}
         <mesh ref={coreRef}>
           <octahedronGeometry args={[1.2, 1]} />
           <meshStandardMaterial
-            color="#00f0ff"
+            color="#38bdf8"
             wireframe
-            emissive="#00f0ff"
-            emissiveIntensity={0.7}
+            emissive="#2563eb"
+            emissiveIntensity={0.8}
             transparent
-            opacity={0.75}
+            opacity={0.8}
           />
         </mesh>
 
@@ -124,9 +124,9 @@ export default function SeoEcosystem3D() {
         <mesh ref={innerCoreRef}>
           <icosahedronGeometry args={[0.7, 2]} />
           <meshStandardMaterial
-            color="#00e599"
-            emissive="#00e599"
-            emissiveIntensity={0.9}
+            color="#3b82f6"
+            emissive="#1d4ed8"
+            emissiveIntensity={1.2}
             roughness={0.1}
             metalness={0.9}
             wireframe={false}
@@ -137,12 +137,12 @@ export default function SeoEcosystem3D() {
       {/* Orbiting Quantum Rings */}
       <group ref={outerRingRef}>
         <mesh rotation={[Math.PI / 3, 0, 0]}>
-          <torusGeometry args={[2.2, 0.012, 16, 100]} />
-          <meshBasicMaterial color="#00e599" transparent opacity={0.35} />
+          <torusGeometry args={[2.2, 0.014, 16, 100]} />
+          <meshBasicMaterial color="#3b82f6" transparent opacity={0.4} />
         </mesh>
         <mesh rotation={[-Math.PI / 4, Math.PI / 6, 0]}>
-          <torusGeometry args={[2.8, 0.012, 16, 100]} />
-          <meshBasicMaterial color="#00f0ff" transparent opacity={0.3} />
+          <torusGeometry args={[2.8, 0.014, 16, 100]} />
+          <meshBasicMaterial color="#ef4444" transparent opacity={0.35} />
         </mesh>
       </group>
 
