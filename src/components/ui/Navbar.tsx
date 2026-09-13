@@ -3,12 +3,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { siteConfig } from "@/data/siteConfig";
 import { formatNepalTime, cn } from "@/lib/utils";
 import MagneticButton from "./MagneticButton";
-import ThemeToggle from "./ThemeToggle";
 import ProfileModal from "./ProfileModal";
-import { Menu, X, ArrowUpRight, Clock, Sparkles, User } from "lucide-react";
+import { Menu, X, ArrowUpRight, Sparkles, User } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -28,10 +26,10 @@ export default function Navbar() {
   ];
 
   useEffect(() => {
-    setNepalTime(formatNepalTime());
-    const timer = setInterval(() => {
-      setNepalTime(formatNepalTime());
-    }, 1000);
+    // Update live Nepal time every second with seconds
+    const updateTime = () => setNepalTime(formatNepalTime(true));
+    updateTime();
+    const timer = setInterval(updateTime, 1000);
 
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
@@ -54,7 +52,7 @@ export default function Navbar() {
         className={cn(
           "fixed top-0 left-0 right-0 z-40 transition-all duration-300 px-4 sm:px-6 lg:px-8",
           scrolled
-            ? "bg-surface-300/85 backdrop-blur-xl border-b border-brand-blue/20 shadow-glass-card py-3"
+            ? "bg-surface-300/90 backdrop-blur-xl border-b border-brand-blue/20 shadow-glass-card py-3"
             : "bg-transparent py-5"
         )}
       >
@@ -66,7 +64,7 @@ export default function Navbar() {
           >
             <div className="relative w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-blue via-brand-cyan to-brand-red p-[1px] shrink-0">
               <div className="w-full h-full rounded-lg bg-surface-300 flex items-center justify-center">
-                <span className="text-xs font-black text-brand-blue font-mono group-hover:text-brand-cyan transition-colors">
+                <span className="text-xs font-black text-brand-cyan font-mono group-hover:text-brand-red transition-colors">
                   SKB
                 </span>
               </div>
@@ -82,7 +80,7 @@ export default function Navbar() {
           </Link>
 
           {/* Center Navigation Links (Desktop) */}
-          <nav className="hidden xl:flex items-center gap-1 p-1 rounded-full bg-surface-200/60 border border-white/10 backdrop-blur-md px-3 shadow-inner">
+          <nav className="hidden xl:flex items-center gap-1 p-1 rounded-full bg-surface-200/70 border border-white/10 backdrop-blur-md px-3 shadow-inner">
             {navLinks.map((link) => (
               <Link
                 key={link.name}
@@ -90,7 +88,7 @@ export default function Navbar() {
                 className="px-3 py-1.5 text-xs font-medium text-text-secondary hover:text-text-primary rounded-full transition-all duration-200 hover:bg-white/5 relative group"
               >
                 {link.name}
-                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-brand-blue rounded-full group-hover:w-1/2 transition-all duration-300" />
+                <span className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-brand-blue to-brand-red rounded-full group-hover:w-1/2 transition-all duration-300" />
               </Link>
             ))}
 
@@ -105,21 +103,21 @@ export default function Navbar() {
             </button>
           </nav>
 
-          {/* Right Action, Nepal Clock, Theme Toggle & CTA */}
+          {/* Right Action: Nepal Live Clock & CTA */}
           <div className="hidden sm:flex items-center gap-3">
-            {/* Live Nepal Clock (Asia/Kathmandu) */}
+            {/* Live Nepal Clock (Asia/Kathmandu · UTC+5:45) */}
             {nepalTime && (
               <div
-                className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-100/80 border border-brand-blue/20 text-[11px] font-mono text-text-secondary shadow-sm"
-                title="Live Nepal Time (Asia/Kathmandu · UTC+5:45)"
+                className="hidden lg:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-surface-100/80 border border-brand-blue/25 text-[11px] font-mono text-text-secondary shadow-sm"
+                title="Live Nepal Standard Time (Asia/Kathmandu · UTC+5:45)"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-cyan opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue" />
                 </span>
-                <span className="font-semibold text-text-primary">NEPAL</span>
+                <span className="font-semibold text-text-primary">NPT</span>
                 <span className="text-text-muted">·</span>
-                <span className="text-brand-cyan font-bold">{nepalTime}</span>
+                <span className="text-brand-cyan font-bold tabular-nums">{nepalTime}</span>
               </div>
             )}
 
@@ -132,9 +130,6 @@ export default function Navbar() {
               <User className="w-3.5 h-3.5" />
               <span>Profile</span>
             </button>
-
-            {/* Theme Switcher Button */}
-            <ThemeToggle />
 
             {/* Let's Talk CTA */}
             <MagneticButton href="/#contact" variant="primary" size="sm">
@@ -152,7 +147,6 @@ export default function Navbar() {
             >
               <User className="w-4 h-4" />
             </button>
-            <ThemeToggle />
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-xl bg-surface-100/80 border border-white/10 text-text-secondary hover:text-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue"
@@ -181,8 +175,8 @@ export default function Navbar() {
                   Sunil Kumar Bohara
                 </span>
                 {nepalTime && (
-                  <span className="text-[11px] font-mono text-brand-cyan bg-surface-100 px-2.5 py-1 rounded-full border border-white/10">
-                    NEPAL · {nepalTime}
+                  <span className="text-[11px] font-mono text-brand-cyan bg-surface-100 px-2.5 py-1 rounded-full border border-white/10 tabular-nums">
+                    NPT · {nepalTime}
                   </span>
                 )}
               </div>

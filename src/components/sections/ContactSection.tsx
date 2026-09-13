@@ -143,20 +143,20 @@ export default function ContactSection() {
           {/* Left Column: Direct Info & 5 Verified Social Profiles */}
           <ScrollReveal animation="slide-left" className="lg:col-span-5 space-y-6">
             <GlassCard className="p-8 border-brand-blue/30">
-              <h3 className="text-xl font-bold text-text-primary font-display mb-2">
+              <h3 className="text-xl font-bold text-white font-display mb-2">
                 Get In Touch with Sunil
               </h3>
-              <p className="text-xs text-text-muted leading-relaxed mb-6">
+              <p className="text-xs text-gray-400 leading-relaxed mb-6">
                 Whether you need a full technical SEO audit, a keyword roadmap, or guidance on optimizing for AI and Answer engines (GEO/AEO), I am available to help.
               </p>
 
               {/* Status Indicator */}
               <div className="p-4 rounded-xl bg-surface-100/90 border border-white/5 space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-xs font-mono text-brand-cyan">
-                  <span className="w-2.5 h-2.5 rounded-full bg-brand-cyan animate-pulse" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse" />
                   <span className="font-bold">Available for Inquiries & Consultation</span>
                 </div>
-                <p className="text-[11px] font-mono text-text-muted">
+                <p className="text-[11px] font-mono text-gray-400">
                   Location: Kathmandu, Nepal (GMT+5:45)
                 </p>
               </div>
@@ -164,13 +164,13 @@ export default function ContactSection() {
               {/* Email Information */}
               <div className="space-y-3 text-xs font-mono">
                 <div className="flex items-center justify-between p-3.5 rounded-xl bg-surface-100/70 border border-white/5">
-                  <div className="flex items-center gap-2.5 text-text-muted">
+                  <div className="flex items-center gap-2.5 text-gray-300">
                     <Mail className="w-4 h-4 text-brand-cyan" />
-                    <span className="text-text-primary font-medium">{siteConfig.email}</span>
+                    <span className="text-white font-medium">{siteConfig.email}</span>
                   </div>
                   <button
                     onClick={handleCopyEmail}
-                    className="p-1.5 rounded-lg bg-surface-200 hover:bg-surface-50 border border-white/10 text-text-muted hover:text-brand-cyan transition-all"
+                    className="p-1.5 rounded-lg bg-surface-200 hover:bg-surface-50 border border-white/10 text-gray-300 hover:text-brand-cyan transition-all"
                     title="Copy email address"
                     aria-label="Copy email"
                   >
@@ -189,7 +189,7 @@ export default function ContactSection() {
                   <span className="text-[10px] font-mono uppercase tracking-wider text-brand-cyan font-semibold">
                     Verified Social Profiles
                   </span>
-                  <span className="text-[10px] font-mono text-text-muted">Official Links</span>
+                  <span className="text-[10px] font-mono text-gray-500">Official Links</span>
                 </div>
 
                 <div className="grid grid-cols-1 gap-2.5">
@@ -205,20 +205,20 @@ export default function ContactSection() {
                         aria-label={`${item.name} profile`}
                       >
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-surface-200 border border-white/10 flex items-center justify-center text-text-muted group-hover:scale-110 transition-transform">
+                          <div className="w-8 h-8 rounded-lg bg-surface-200 border border-white/10 flex items-center justify-center text-gray-300 group-hover:scale-110 transition-transform">
                             <Icon className="w-4 h-4" />
                           </div>
                           <div>
-                            <span className="text-xs font-bold text-text-primary block group-hover:text-brand-cyan transition-colors font-display">
+                            <span className="text-xs font-bold text-white block group-hover:text-brand-cyan transition-colors font-display">
                               {item.name}
                             </span>
-                            <span className="text-[10px] font-mono text-text-muted">
+                            <span className="text-[10px] font-mono text-gray-500">
                               {item.handle}
                             </span>
                           </div>
                         </div>
 
-                        <ArrowUpRight className="w-4 h-4 text-text-muted group-hover:text-brand-cyan group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        <ArrowUpRight className="w-4 h-4 text-gray-500 group-hover:text-brand-cyan group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </a>
                     );
                   })}
@@ -235,11 +235,11 @@ export default function ContactSection() {
                   <div className="w-16 h-16 rounded-full bg-brand-blue/20 border-2 border-brand-blue flex items-center justify-center text-brand-cyan mx-auto shadow-glow-sm">
                     <CheckCircle2 className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-text-primary font-display">
+                  <h3 className="text-2xl font-bold text-white font-display">
                     Enquiry Received Successfully!
                   </h3>
-                  <p className="text-xs text-text-muted max-w-md mx-auto leading-relaxed">
-                    Thank you for reaching out, <strong className="text-text-primary">{formData.name}</strong>. Your message has been routed directly to Sunil&apos;s inbox. You will receive a response shortly.
+                  <p className="text-xs text-gray-300 max-w-md mx-auto leading-relaxed">
+                    Thank you for reaching out, <strong className="text-white">{formData.name}</strong>. Your message has been routed directly to Sunil&apos;s inbox. You will receive a response shortly.
                   </p>
                   <button
                     onClick={() => {
@@ -252,7 +252,7 @@ export default function ContactSection() {
                         message: "",
                       });
                     }}
-                    className="px-6 py-2.5 rounded-xl bg-surface-100 hover:bg-surface-50 border border-white/10 text-xs font-mono text-text-muted"
+                    className="px-6 py-2.5 rounded-xl bg-surface-100 hover:bg-surface-50 border border-white/10 text-xs font-mono text-gray-300"
                   >
                     Send Another Enquiry
                   </button>
@@ -269,7 +269,7 @@ export default function ContactSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Name */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-text-muted">
+                      <label className="text-xs font-mono text-gray-300">
                         Your Name <span className="text-brand-red">*</span>
                       </label>
                       <input
@@ -280,13 +280,13 @@ export default function ContactSection() {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         placeholder="e.g. Alex Morgan"
-                        className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-text-primary placeholder-text-muted/50 text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
                       />
                     </div>
 
                     {/* Email */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-text-muted">
+                      <label className="text-xs font-mono text-gray-300">
                         Email Address <span className="text-brand-red">*</span>
                       </label>
                       <input
@@ -297,7 +297,7 @@ export default function ContactSection() {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         placeholder="alex@company.com"
-                        className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-text-primary placeholder-text-muted/50 text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
                       />
                     </div>
                   </div>
@@ -305,7 +305,7 @@ export default function ContactSection() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Company / Website */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-text-muted">
+                      <label className="text-xs font-mono text-gray-300">
                         Website or Company (Optional)
                       </label>
                       <input
@@ -315,13 +315,13 @@ export default function ContactSection() {
                           setFormData({ ...formData, website: e.target.value })
                         }
                         placeholder="https://example.com"
-                        className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-text-primary placeholder-text-muted/50 text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all font-mono"
+                        className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all font-mono"
                       />
                     </div>
 
                     {/* Service Required */}
                     <div className="space-y-1.5">
-                      <label className="text-xs font-mono text-text-muted">
+                      <label className="text-xs font-mono text-gray-300">
                         Requested Focus
                       </label>
                       <select
@@ -329,7 +329,7 @@ export default function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, service: e.target.value })
                         }
-                        className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-text-primary text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
+                        className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all"
                       >
                         <option value="Technical SEO & Audit">Technical SEO & Audit</option>
                         <option value="Generative Engine Optimization (GEO)">Generative Engine Optimization (GEO)</option>
@@ -344,7 +344,7 @@ export default function ContactSection() {
 
                   {/* Message */}
                   <div className="space-y-1.5">
-                    <label className="text-xs font-mono text-text-muted">
+                    <label className="text-xs font-mono text-gray-300">
                       Project Details & Search Goals <span className="text-brand-red">*</span>
                     </label>
                     <textarea
@@ -355,7 +355,7 @@ export default function ContactSection() {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       placeholder="Share details about your site, target search audience, or specific challenges..."
-                      className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-text-primary placeholder-text-muted/50 text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all leading-relaxed"
+                      className="w-full px-4 py-3 rounded-xl bg-surface-100/90 border border-white/10 text-white placeholder-gray-500 text-xs focus:outline-none focus:border-brand-blue focus:ring-1 focus:ring-brand-blue transition-all leading-relaxed"
                     />
                   </div>
 

@@ -3,7 +3,6 @@ import { Inter, Outfit, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import { siteConfig } from "@/data/siteConfig";
 import LayoutWrapper from "@/components/ui/LayoutWrapper";
-import { ThemeProvider } from "@/components/ui/ThemeProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,10 +23,7 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const viewport: Viewport = {
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f8fafc" },
-    { media: "(prefers-color-scheme: dark)", color: "#06070a" },
-  ],
+  themeColor: "#050816",
   width: "device-width",
   initialScale: 1,
 };
@@ -146,24 +142,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
-        {/* Anti-FOUC Theme Script */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              try {
-                const storedTheme = localStorage.getItem('sunil_portfolio_theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                if (storedTheme === 'light' || (!storedTheme && !prefersDark)) {
-                  document.documentElement.classList.remove('dark');
-                  document.documentElement.classList.add('light');
-                } else {
-                  document.documentElement.classList.add('dark');
-                  document.documentElement.classList.remove('light');
-                }
-              } catch (e) {}
-            `,
-          }}
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
@@ -173,10 +151,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </head>
-      <body className="font-sans antialiased bg-background text-gray-100 min-h-screen selection:bg-brand-green selection:text-black">
-        <ThemeProvider>
-          <LayoutWrapper>{children}</LayoutWrapper>
-        </ThemeProvider>
+      <body className="font-sans antialiased bg-background text-text-primary min-h-screen selection:bg-brand-blue/40 selection:text-white">
+        <LayoutWrapper>{children}</LayoutWrapper>
       </body>
     </html>
   );

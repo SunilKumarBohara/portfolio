@@ -62,7 +62,7 @@ export default function GlassCard({
       }}
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       className={cn(
-        "relative rounded-2xl border border-white/10 bg-surface-200/75 p-6 backdrop-blur-xl transition-colors duration-300 hover:border-brand-blue/40 shadow-glass-card group overflow-hidden",
+        "relative rounded-2xl border border-white/10 bg-surface-200/70 p-6 backdrop-blur-xl transition-colors duration-300 hover:border-brand-blue/40 shadow-glass-card group overflow-hidden",
         onClick && "cursor-pointer",
         className
       )}

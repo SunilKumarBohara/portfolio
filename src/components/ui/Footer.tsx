@@ -37,12 +37,12 @@ export default function Footer() {
           {/* Brand & Role */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-2.5">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-blue to-brand-cyan p-[1px]">
+              <div className="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-blue to-brand-red p-[1px]">
                 <div className="w-full h-full rounded-lg bg-surface-300 flex items-center justify-center">
                   <span className="text-xs font-black text-brand-cyan font-mono">SKB</span>
                 </div>
               </div>
-              <span className="text-lg font-black tracking-wider text-text-primary font-display">
+              <span className="text-lg font-black tracking-wider text-white font-display">
                 SUNIL KUMAR BOHARA
               </span>
             </div>
@@ -51,22 +51,22 @@ export default function Footer() {
               SEO Executive
             </div>
 
-            <p className="text-xs text-text-muted leading-relaxed max-w-sm">
+            <p className="text-xs text-gray-400 leading-relaxed max-w-sm">
               Building better search visibility through SEO, content, and modern web experiences.
             </p>
 
-            <div className="flex items-center gap-2 text-xs font-mono text-text-muted">
-              <MapPin className="w-3.5 h-3.5 text-brand-cyan" />
+            <div className="flex items-center gap-2 text-xs font-mono text-gray-400">
+              <MapPin className="w-3.5 h-3.5 text-brand-red" />
               <span>Kathmandu, Nepal</span>
             </div>
           </div>
 
           {/* Navigation Links */}
           <div className="lg:col-span-3 space-y-3">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-text-primary font-bold">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold">
               Navigation
             </h4>
-            <ul className="space-y-2 text-xs font-mono text-text-muted">
+            <ul className="space-y-2 text-xs font-mono text-gray-400">
               <li>
                 <Link href="/#about" className="hover:text-brand-cyan transition-colors">
                   About Sunil
@@ -107,10 +107,10 @@ export default function Footer() {
 
           {/* Social Links & CTA */}
           <div className="lg:col-span-4 space-y-4">
-            <h4 className="text-xs font-mono uppercase tracking-wider text-text-primary font-bold">
+            <h4 className="text-xs font-mono uppercase tracking-wider text-white font-bold">
               Connect With Sunil
             </h4>
-            <p className="text-xs text-text-muted">
+            <p className="text-xs text-gray-400">
               Follow along for technical SEO strategies, AI search optimization (GEO), and answer engineering (AEO).
             </p>
 
@@ -119,7 +119,7 @@ export default function Footer() {
                 href={siteConfig.socials.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all text-text-muted"
+                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all"
                 aria-label="GitHub Profile"
               >
                 <Github className="w-4 h-4" />
@@ -128,7 +128,7 @@ export default function Footer() {
                 href={siteConfig.socials.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all text-text-muted"
+                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all"
                 aria-label="LinkedIn Profile"
               >
                 <Linkedin className="w-4 h-4" />
@@ -137,7 +137,7 @@ export default function Footer() {
                 href={siteConfig.socials.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all text-text-muted"
+                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all"
                 aria-label="Facebook Profile"
               >
                 <Facebook className="w-4 h-4" />
@@ -146,7 +146,7 @@ export default function Footer() {
                 href={siteConfig.socials.instagram}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all text-text-muted"
+                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all"
                 aria-label="Instagram Profile"
               >
                 <Instagram className="w-4 h-4" />
@@ -155,7 +155,7 @@ export default function Footer() {
                 href={siteConfig.socials.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all text-text-muted"
+                className="p-2.5 rounded-xl bg-surface-100 border border-white/10 hover:border-brand-blue hover:text-brand-cyan transition-all"
                 aria-label="Twitter X Profile"
               >
                 <XTwitterIcon className="w-4 h-4" />
@@ -167,7 +167,7 @@ export default function Footer() {
                 href="/#contact"
                 className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-surface-100 hover:bg-surface-50 border border-brand-blue/30 text-xs font-mono text-brand-cyan transition-all shadow-glow-sm"
               >
-                <Sparkles className="w-3.5 h-3.5" />
+                <Sparkles className="w-3.5 h-3.5 text-brand-red" />
                 <span>Start a Project Consultation</span>
               </Link>
             </div>
@@ -175,7 +175,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright & Back to Top */}
-        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-text-muted">
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-gray-500">
           <p>© 2026 Sunil Kumar Bohara. All rights reserved.</p>
 
           <button

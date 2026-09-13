@@ -46,31 +46,31 @@ export default function ProjectsSection() {
                 <div>
                   {/* Top Meta Bar */}
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-[11px] font-mono font-medium">
+                    <span className="px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-[11px] font-mono">
                       {project.category}
                     </span>
-                    <span className="text-xs font-mono text-text-muted">
+                    <span className="text-xs font-mono text-gray-400">
                       {project.industry}
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-text-primary group-hover:text-brand-cyan transition-colors mb-3 font-display">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-cyan transition-colors mb-3 font-display">
                     {project.title}
                   </h3>
 
                   {/* Problem & Strategy Summary */}
-                  <div className="space-y-3 text-xs text-text-muted mb-6">
+                  <div className="space-y-3 text-xs text-gray-300 mb-6">
                     <div className="p-3 rounded-xl bg-surface-100/70 border border-white/5">
-                      <strong className="text-text-muted block mb-1 font-mono text-[11px]">
+                      <strong className="text-gray-400 block mb-1 font-mono text-[11px]">
                         The Challenge:
                       </strong>
-                      <p className="line-clamp-2 text-text-muted">{project.problem}</p>
+                      <p className="line-clamp-2 text-gray-300">{project.problem}</p>
                     </div>
                     <div className="p-3 rounded-xl bg-brand-blue/5 border border-brand-blue/20">
                       <strong className="text-brand-cyan block mb-1 font-mono text-[11px]">
                         The SEO Strategy:
                       </strong>
-                      <p className="line-clamp-2 text-text-muted">{project.strategy}</p>
+                      <p className="line-clamp-2 text-gray-300">{project.strategy}</p>
                     </div>
                   </div>
 
@@ -78,9 +78,9 @@ export default function ProjectsSection() {
                   <div className="grid grid-cols-3 gap-2 p-3 rounded-xl bg-surface-100/90 border border-white/10 text-center font-mono">
                     {project.metricsPlaceholder.map((m, mIdx) => (
                       <div key={mIdx} className="space-y-0.5">
-                        <p className="text-[10px] text-text-muted uppercase">{m.label}</p>
-                        <p className="text-xs font-bold text-text-primary">{m.value}</p>
-                        <p className="text-[10px] text-brand-cyan font-semibold">{m.growth}</p>
+                        <p className="text-[10px] text-gray-500 uppercase">{m.label}</p>
+                        <p className="text-xs font-bold text-white">{m.value}</p>
+                        <p className="text-[10px] text-brand-cyan font-medium">{m.growth}</p>
                       </div>
                     ))}
                   </div>
@@ -92,19 +92,19 @@ export default function ProjectsSection() {
                     {project.technologies.slice(0, 3).map((tech) => (
                       <span
                         key={tech}
-                        className="px-2 py-0.5 rounded bg-surface-100 text-[10px] font-mono text-text-muted border border-white/5"
+                        className="px-2 py-0.5 rounded bg-surface-100 text-[10px] font-mono text-gray-400 border border-white/5"
                       >
                         {tech}
                       </span>
                     ))}
                     {project.technologies.length > 3 && (
-                      <span className="text-[10px] font-mono text-text-muted self-center">
+                      <span className="text-[10px] font-mono text-gray-500 self-center">
                         +{project.technologies.length - 3} more
                       </span>
                     )}
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-brand-cyan group-hover:text-brand-blue transition-colors font-medium">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-brand-cyan group-hover:text-brand-red transition-colors">
                     <span>Explore Case Blueprint</span>
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
@@ -129,35 +129,35 @@ export default function ProjectsSection() {
               {/* Close Button */}
               <button
                 onClick={() => setActiveProject(null)}
-                className="absolute top-6 right-6 p-2 rounded-xl bg-surface-100 border border-white/10 text-text-muted hover:text-text-primary hover:border-brand-blue focus:outline-none"
+                className="absolute top-6 right-6 p-2 rounded-xl bg-surface-100 border border-white/10 text-gray-400 hover:text-white hover:border-brand-blue focus:outline-none"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="flex items-center gap-2 mb-2">
-                <span className="px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-xs font-mono font-medium">
+                <span className="px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-xs font-mono">
                   {activeProject.category}
                 </span>
-                <span className="text-xs font-mono text-text-muted">
+                <span className="text-xs font-mono text-gray-400">
                   {activeProject.industry}
                 </span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-text-primary font-display mb-4">
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-display mb-4">
                 {activeProject.title}
               </h3>
 
               {/* Challenge & Strategy */}
-              <div className="space-y-4 mb-6 text-sm text-text-muted">
+              <div className="space-y-4 mb-6 text-sm text-gray-300">
                 <div className="p-4 rounded-2xl bg-surface-200 border border-white/10">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-text-muted mb-1 font-semibold">
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-gray-400 mb-1">
                     Problem & Diagnosis:
                   </h4>
                   <p className="leading-relaxed">{activeProject.problem}</p>
                 </div>
 
                 <div className="p-4 rounded-2xl bg-brand-blue/5 border border-brand-blue/20">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-brand-cyan mb-1 font-semibold">
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-brand-cyan mb-1">
                     Strategic Execution Framework:
                   </h4>
                   <p className="leading-relaxed">{activeProject.strategy}</p>
@@ -166,14 +166,14 @@ export default function ProjectsSection() {
 
               {/* Completed Work Points */}
               <div className="space-y-3 mb-6">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-text-primary font-bold">
+                <h4 className="text-xs font-mono uppercase tracking-wider text-white">
                   Work Completed & Technical Milestones:
                 </h4>
                 <div className="space-y-2">
                   {activeProject.workCompleted.map((task, tIdx) => (
                     <div
                       key={tIdx}
-                      className="flex items-start gap-2.5 p-3 rounded-xl bg-surface-200 border border-white/5 text-xs text-text-primary"
+                      className="flex items-start gap-2.5 p-3 rounded-xl bg-surface-200 border border-white/5 text-xs text-gray-200"
                     >
                       <CheckCircle2 className="w-4 h-4 text-brand-cyan shrink-0 mt-0.5" />
                       <span>{task}</span>
@@ -185,7 +185,7 @@ export default function ProjectsSection() {
               {/* Verified Metrics Structure */}
               <div className="p-4 rounded-2xl bg-surface-200 border border-white/10 mb-6">
                 <div className="flex items-center justify-between mb-3">
-                  <span className="text-xs font-mono text-text-primary font-bold">
+                  <span className="text-xs font-mono text-white font-bold">
                     Project Target Metrics & Evaluation:
                   </span>
                   <span className="text-[10px] font-mono text-brand-cyan">
@@ -195,9 +195,9 @@ export default function ProjectsSection() {
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-center font-mono">
                   {activeProject.metricsPlaceholder.map((m, mIdx) => (
                     <div key={mIdx} className="p-3 rounded-xl bg-surface-100 border border-white/5">
-                      <p className="text-[10px] text-text-muted uppercase">{m.label}</p>
-                      <p className="text-sm font-bold text-text-primary mt-0.5">{m.value}</p>
-                      <p className="text-[11px] text-brand-cyan font-semibold mt-0.5">{m.growth}</p>
+                      <p className="text-[10px] text-gray-500 uppercase">{m.label}</p>
+                      <p className="text-sm font-bold text-white mt-0.5">{m.value}</p>
+                      <p className="text-[11px] text-brand-cyan mt-0.5">{m.growth}</p>
                     </div>
                   ))}
                 </div>
@@ -205,7 +205,7 @@ export default function ProjectsSection() {
 
               {/* Tech Stack */}
               <div className="mb-6">
-                <h4 className="text-xs font-mono uppercase tracking-wider text-text-muted mb-2 font-semibold">
+                <h4 className="text-xs font-mono uppercase tracking-wider text-gray-400 mb-2">
                   Toolkit & Diagnostics Used:
                 </h4>
                 <div className="flex flex-wrap gap-2">
@@ -224,14 +224,14 @@ export default function ProjectsSection() {
               <div className="flex justify-end gap-3 pt-4 border-t border-white/10">
                 <button
                   onClick={() => setActiveProject(null)}
-                  className="px-5 py-2.5 rounded-xl bg-surface-100 hover:bg-surface-200 border border-white/10 text-xs text-text-muted font-medium"
+                  className="px-5 py-2.5 rounded-xl bg-surface-100 hover:bg-surface-200 border border-white/10 text-xs text-gray-300 font-medium"
                 >
                   Close
                 </button>
                 <a
                   href="#contact"
                   onClick={() => setActiveProject(null)}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-brand-cyan text-white text-xs font-bold shadow-glow-sm hover:brightness-110 flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-brand-red text-white text-xs font-bold shadow-glow-sm hover:brightness-110 flex items-center gap-2"
                 >
                   <span>Discuss a Similar Project</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

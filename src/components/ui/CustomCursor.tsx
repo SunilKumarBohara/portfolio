@@ -84,7 +84,7 @@ export default function CustomCursor() {
           width: isPointer ? 54 : 32,
           height: isPointer ? 54 : 32,
           backgroundColor: isPointer ? "rgba(59, 130, 246, 0.15)" : "rgba(56, 189, 248, 0.05)",
-          borderColor: isPointer ? "rgba(59, 130, 246, 0.6)" : "rgba(56, 189, 248, 0.3)",
+          borderColor: isPointer ? "rgba(59, 130, 246, 0.7)" : "rgba(56, 189, 248, 0.35)",
           scale: isClicking ? 0.85 : 1,
         }}
         transition={{ type: "spring", damping: 25, stiffness: 350 }}
@@ -92,7 +92,7 @@ export default function CustomCursor() {
 
       {/* Center Precision Pin */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[10000] rounded-full bg-brand-cyan shadow-glow-sm"
+        className="fixed top-0 left-0 pointer-events-none z-[10000] rounded-full bg-brand-cyan shadow-glow-cyan"
         style={{
           x: smoothX,
           y: smoothY,
@@ -103,7 +103,7 @@ export default function CustomCursor() {
           width: isPointer ? 8 : 5,
           height: isPointer ? 8 : 5,
           scale: isClicking ? 1.4 : 1,
-          backgroundColor: isPointer ? "#38bdf8" : "#3b82f6",
+          backgroundColor: isPointer ? "#ef4444" : "#38bdf8",
         }}
         transition={{ type: "spring", damping: 30, stiffness: 500 }}
       />

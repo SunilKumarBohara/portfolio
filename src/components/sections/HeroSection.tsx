@@ -5,7 +5,7 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 import MagneticButton from "../ui/MagneticButton";
 import ScrollReveal from "../ui/ScrollReveal";
-import { ArrowRight, Sparkles, TrendingUp, Search, ShieldCheck, Zap, Bot, Layers } from "lucide-react";
+import { ArrowRight, Sparkles, TrendingUp, Search, ShieldCheck, Zap } from "lucide-react";
 
 // Dynamically import Three.js canvas with SSR disabled for optimal hydration
 const HeroCanvas = dynamic(() => import("../3d/HeroCanvas"), {
@@ -22,7 +22,7 @@ export default function HeroSection() {
     <section className="relative min-h-screen flex items-center justify-center pt-28 pb-16 overflow-hidden bg-background">
       {/* Background Cybernetic Glow Halos & Grid */}
       <div className="absolute inset-0 bg-cyber-grid bg-[size:32px_32px] pointer-events-none opacity-40" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-radial from-brand-blue/15 via-purple-500/10 to-brand-red/5 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-gradient-radial from-brand-blue/15 via-purple-500/10 to-brand-red/5 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
@@ -65,7 +65,7 @@ export default function HeroSection() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="text-base sm:text-lg md:text-xl text-text-secondary mt-6 max-w-2xl font-normal leading-relaxed"
             >
-              I&apos;m <span className="text-text-primary font-semibold">Sunil Kumar Bohara</span>, an <strong className="text-brand-blue font-semibold">SEO Executive</strong> based in Nepal helping websites improve visibility, capture search intent, and dominate search results through data-backed SEO, GEO, and AEO optimization.
+              I&apos;m <span className="text-text-primary font-semibold">Sunil Kumar Bohara</span>, an <strong className="text-brand-cyan font-semibold">SEO Executive</strong> based in Nepal helping websites improve visibility, capture search intent, and grow through data-backed organic search optimization.
             </motion.p>
 
             {/* CTAs */}
@@ -94,19 +94,19 @@ export default function HeroSection() {
             >
               <div className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-200/60 border border-white/5 hover:border-brand-blue/40 hover:scale-[1.02] transition-all">
                 <Search className="w-4 h-4 text-brand-blue" />
-                <span className="text-text-primary font-medium">Technical SEO</span>
+                <span>Technical SEO</span>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-200/60 border border-white/5 hover:border-purple-500/40 hover:scale-[1.02] transition-all">
-                <Bot className="w-4 h-4 text-purple-400" />
-                <span className="text-text-primary font-medium">GEO & AI Search</span>
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-200/60 border border-white/5 hover:border-brand-cyan/40 hover:scale-[1.02] transition-all">
+                <TrendingUp className="w-4 h-4 text-brand-cyan" />
+                <span>GEO & AI Search</span>
               </div>
               <div className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-200/60 border border-white/5 hover:border-brand-red/40 hover:scale-[1.02] transition-all">
                 <Zap className="w-4 h-4 text-brand-red" />
-                <span className="text-text-primary font-medium">AEO Answers</span>
+                <span>AEO Answers</span>
               </div>
-              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-200/60 border border-white/5 hover:border-brand-cyan/40 hover:scale-[1.02] transition-all">
-                <ShieldCheck className="w-4 h-4 text-brand-cyan" />
-                <span className="text-text-primary font-medium">Schema Graph</span>
+              <div className="flex items-center gap-2 p-2.5 rounded-xl bg-surface-200/60 border border-white/5 hover:border-brand-blue/40 hover:scale-[1.02] transition-all">
+                <ShieldCheck className="w-4 h-4 text-brand-blue" />
+                <span>Schema Graph</span>
               </div>
             </motion.div>
           </div>
@@ -119,11 +119,11 @@ export default function HeroSection() {
             className="lg:col-span-5 relative flex items-center justify-center"
           >
             {/* 3D Scene Viewport */}
-            <div className="w-full h-[440px] sm:h-[500px] lg:h-[560px] relative rounded-3xl border border-blue-500/20 bg-surface-200/50 backdrop-blur-md overflow-hidden shadow-glass-card group">
+            <div className="w-full h-[440px] sm:h-[500px] lg:h-[560px] relative rounded-3xl border border-blue-500/25 bg-surface-200/50 backdrop-blur-md overflow-hidden shadow-glass-card group">
               {/* Header bar within 3D widget */}
               <div className="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
                 <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-surface-300/85 border border-brand-blue/30 backdrop-blur-md text-[11px] font-mono text-text-primary">
-                  <Sparkles className="w-3.5 h-3.5 text-brand-cyan animate-spin-slow" />
+                  <Sparkles className="w-3.5 h-3.5 text-brand-blue animate-spin-slow" />
                   <span>3D Search Ecosystem</span>
                 </div>
                 <span className="text-[10px] font-mono text-text-muted bg-surface-300/85 px-2 py-0.5 rounded border border-white/10">
@@ -137,7 +137,7 @@ export default function HeroSection() {
               {/* Bottom Interactive Hint */}
               <div className="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between text-[11px] font-mono text-text-muted pointer-events-none bg-surface-300/80 p-2.5 rounded-xl border border-white/10 backdrop-blur-md">
                 <span>Move cursor to rotate & explore</span>
-                <span className="text-brand-cyan font-bold">Active Telemetry</span>
+                <span className="text-brand-cyan">Active Simulation</span>
               </div>
             </div>
           </motion.div>
