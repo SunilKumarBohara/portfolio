@@ -53,10 +53,50 @@
     });
   }
 
+  // -------------------------------------------------------------------------
+  // Live Nepal Time Clock (Asia/Kathmandu, UTC+5:45)
+  // -------------------------------------------------------------------------
+  function formatNepalClock() {
+    const clockElements = document.querySelectorAll('#nepal-clock-display, .nepal-time-value');
+    if (!clockElements.length) return;
+
+    try {
+      const now = new Date();
+      const formatter = new Intl.DateTimeFormat('en-US', {
+        timeZone: 'Asia/Kathmandu',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit',
+        hour12: true,
+      });
+      const formatted = formatter.format(now);
+      clockElements.forEach((el) => {
+        el.textContent = formatted;
+      });
+    } catch (e) {
+      const now = new Date();
+      const utc = now.getTime() + (now.getTimezoneOffset() * 60000);
+      const nptDate = new Date(utc + (3600000 * 5.75));
+      let hours = nptDate.getHours();
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+      const mins = String(nptDate.getMinutes()).padStart(2, '0');
+      const secs = String(nptDate.getSeconds()).padStart(2, '0');
+      const formatted = `${String(hours).padStart(2, '0')}:${mins}:${secs} ${ampm}`;
+      clockElements.forEach((el) => {
+        el.textContent = formatted;
+      });
+    }
+  }
+
   // Initialize Theme on DOM Ready
   document.addEventListener('DOMContentLoaded', function () {
     const currentTheme = getSavedTheme();
     applyTheme(currentTheme);
+
+    // Start Live Nepal Clock
+    formatNepalClock();
+    setInterval(formatNepalClock, 1000);
 
     // Attach click listeners to all theme buttons
     document.querySelectorAll('.theme-toggle-btn').forEach((btn) => {

@@ -51,13 +51,58 @@ export default function Navbar() {
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 px-4 sm:px-6 lg:px-8",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           scrolled
-            ? "bg-surface-300/85 backdrop-blur-xl border-b border-brand-green/20 shadow-glass-card py-3"
-            : "bg-transparent py-5"
+            ? "bg-surface-300/90 backdrop-blur-xl border-b border-brand-green/20 shadow-glass-card"
+            : "bg-surface-300/60 backdrop-blur-md border-b border-white/5"
         )}
       >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Top Utility Navbar */}
+        <div className="border-b border-white/10 bg-surface-200/40 text-[11px] font-mono py-1.5 px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto flex items-center justify-between">
+            {/* Left: Live Nepal Time & Location */}
+            <div className="flex items-center gap-3 text-gray-300">
+              <div className="flex items-center gap-1.5" title="Asia/Kathmandu (UTC+5:45)">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse inline-block" />
+                <span className="text-gray-400 font-sans text-[11px]">Nepal:</span>
+                <span className="font-bold text-brand-green font-mono">{nepalTime || "--:--:-- --"}</span>
+              </div>
+              <span className="text-white/20 hidden sm:inline">|</span>
+              <span className="text-gray-400 hidden sm:inline">Kathmandu (UTC+5:45)</span>
+            </div>
+
+            {/* Center: Availability Pill */}
+            <div className="hidden md:flex items-center">
+              <Link
+                href="/#contact"
+                className="flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-brand-green/10 border border-brand-green/25 text-brand-green text-[10px] hover:bg-brand-green/20 transition-colors font-sans"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+                <span>Available for Q1/Q2 SEO Projects & Audits</span>
+              </Link>
+            </div>
+
+            {/* Right: Direct Contacts */}
+            <div className="flex items-center gap-3 text-gray-400 text-[11px] font-sans">
+              <a
+                href="mailto:sunilkumarbohara99@gmail.com"
+                className="hover:text-brand-green transition-colors hidden sm:inline"
+              >
+                sunilkumarbohara99@gmail.com
+              </a>
+              <span className="text-white/20 hidden sm:inline">|</span>
+              <a
+                href="tel:+9779868773950"
+                className="hover:text-brand-green transition-colors"
+              >
+                +977 9868773950
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Main Navbar */}
+        <div className="max-w-7xl mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8 py-3">
           {/* Brand Name / Logo: SUNIL KUMAR BOHARA */}
           <Link
             href="/"
