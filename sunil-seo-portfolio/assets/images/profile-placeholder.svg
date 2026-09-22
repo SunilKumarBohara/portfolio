@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <linearGradient id="profRing" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#8b5cf6" />
+      <stop offset="100%" stop-color="#ef4444" />
+    </linearGradient>
+  </defs>
+  <circle cx="150" cy="150" r="142" fill="#0b1329" stroke="url(#profRing)" stroke-width="4" />
+  <circle cx="150" cy="120" r="50" fill="#1e293b" />
+  <path d="M 60 230 C 60 170 240 170 240 230 Z" fill="#1e293b" />
+  <text x="150" y="270" text-anchor="middle" fill="#38bdf8" font-family="'Inter', sans-serif" font-size="12" font-weight="700">
+    SUNIL KUMAR BOHARA
+  </text>
+</svg>
