@@ -24,7 +24,7 @@ export default function ProjectsSection() {
   return (
     <section id="projects" className="relative py-24 sm:py-32 bg-surface-300 border-t border-white/5 overflow-hidden">
       {/* Background glow */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-blue/5 blur-[160px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-green/5 blur-[160px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal animation="fade-up">
@@ -41,12 +41,12 @@ export default function ProjectsSection() {
             <ScrollReveal key={project.id} animation="fade-up" delay={idx * 0.1}>
               <GlassCard
                 onClick={() => setActiveProject(project)}
-                className="h-full flex flex-col justify-between p-8 border-white/10 hover:border-brand-blue/40 cursor-pointer group"
+                className="h-full flex flex-col justify-between p-8 border-white/10 hover:border-brand-green/40 cursor-pointer group"
               >
                 <div>
                   {/* Top Meta Bar */}
                   <div className="flex items-center justify-between gap-2 mb-4">
-                    <span className="px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-[11px] font-mono">
+                    <span className="px-3 py-1 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-[11px] font-mono">
                       {project.category}
                     </span>
                     <span className="text-xs font-mono text-gray-400">
@@ -54,7 +54,7 @@ export default function ProjectsSection() {
                     </span>
                   </div>
 
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-cyan transition-colors mb-3 font-display">
+                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-brand-green transition-colors mb-3 font-display">
                     {project.title}
                   </h3>
 
@@ -66,8 +66,8 @@ export default function ProjectsSection() {
                       </strong>
                       <p className="line-clamp-2 text-gray-300">{project.problem}</p>
                     </div>
-                    <div className="p-3 rounded-xl bg-brand-blue/5 border border-brand-blue/20">
-                      <strong className="text-brand-cyan block mb-1 font-mono text-[11px]">
+                    <div className="p-3 rounded-xl bg-brand-green/5 border border-brand-green/20">
+                      <strong className="text-brand-green block mb-1 font-mono text-[11px]">
                         The SEO Strategy:
                       </strong>
                       <p className="line-clamp-2 text-gray-300">{project.strategy}</p>
@@ -80,7 +80,7 @@ export default function ProjectsSection() {
                       <div key={mIdx} className="space-y-0.5">
                         <p className="text-[10px] text-gray-500 uppercase">{m.label}</p>
                         <p className="text-xs font-bold text-white">{m.value}</p>
-                        <p className="text-[10px] text-brand-cyan font-medium">{m.growth}</p>
+                        <p className="text-[10px] text-brand-green font-medium">{m.growth}</p>
                       </div>
                     ))}
                   </div>
@@ -104,7 +104,7 @@ export default function ProjectsSection() {
                     )}
                   </div>
 
-                  <div className="flex items-center gap-1.5 text-xs font-mono text-brand-cyan group-hover:text-brand-red transition-colors">
+                  <div className="flex items-center gap-1.5 text-xs font-mono text-brand-cyan group-hover:text-brand-green transition-colors">
                     <span>Explore Case Blueprint</span>
                     <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                   </div>
@@ -124,18 +124,18 @@ export default function ProjectsSection() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.92 }}
               transition={{ duration: 0.3 }}
-              className="relative w-full max-w-3xl bg-surface-300 border border-brand-blue/40 rounded-3xl p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
+              className="relative w-full max-w-3xl bg-surface-300 border border-brand-green/40 rounded-3xl p-6 sm:p-8 shadow-2xl max-h-[90vh] overflow-y-auto"
             >
               {/* Close Button */}
               <button
                 onClick={() => setActiveProject(null)}
-                className="absolute top-6 right-6 p-2 rounded-xl bg-surface-100 border border-white/10 text-gray-400 hover:text-white hover:border-brand-blue focus:outline-none"
+                className="absolute top-6 right-6 p-2 rounded-xl bg-surface-100 border border-white/10 text-gray-400 hover:text-white hover:border-brand-green focus:outline-none"
               >
                 <X className="w-5 h-5" />
               </button>
 
               <div className="flex items-center gap-2 mb-2">
-                <span className="px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-xs font-mono">
+                <span className="px-3 py-1 rounded-full bg-brand-green/10 border border-brand-green/30 text-brand-green text-xs font-mono">
                   {activeProject.category}
                 </span>
                 <span className="text-xs font-mono text-gray-400">
@@ -156,8 +156,8 @@ export default function ProjectsSection() {
                   <p className="leading-relaxed">{activeProject.problem}</p>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-brand-blue/5 border border-brand-blue/20">
-                  <h4 className="text-xs font-mono uppercase tracking-wider text-brand-cyan mb-1">
+                <div className="p-4 rounded-2xl bg-brand-green/5 border border-brand-green/20">
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-brand-green mb-1">
                     Strategic Execution Framework:
                   </h4>
                   <p className="leading-relaxed">{activeProject.strategy}</p>
@@ -175,7 +175,7 @@ export default function ProjectsSection() {
                       key={tIdx}
                       className="flex items-start gap-2.5 p-3 rounded-xl bg-surface-200 border border-white/5 text-xs text-gray-200"
                     >
-                      <CheckCircle2 className="w-4 h-4 text-brand-cyan shrink-0 mt-0.5" />
+                      <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0 mt-0.5" />
                       <span>{task}</span>
                     </div>
                   ))}
@@ -197,7 +197,7 @@ export default function ProjectsSection() {
                     <div key={mIdx} className="p-3 rounded-xl bg-surface-100 border border-white/5">
                       <p className="text-[10px] text-gray-500 uppercase">{m.label}</p>
                       <p className="text-sm font-bold text-white mt-0.5">{m.value}</p>
-                      <p className="text-[11px] text-brand-cyan mt-0.5">{m.growth}</p>
+                      <p className="text-[11px] text-brand-green mt-0.5">{m.growth}</p>
                     </div>
                   ))}
                 </div>
@@ -212,7 +212,7 @@ export default function ProjectsSection() {
                   {activeProject.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1 rounded-lg bg-surface-200 text-xs font-mono text-brand-cyan border border-white/10"
+                      className="px-3 py-1 rounded-lg bg-surface-200 text-xs font-mono text-brand-green border border-white/10"
                     >
                       {tech}
                     </span>
@@ -231,7 +231,7 @@ export default function ProjectsSection() {
                 <a
                   href="#contact"
                   onClick={() => setActiveProject(null)}
-                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-blue to-brand-red text-white text-xs font-bold shadow-glow-sm hover:brightness-110 flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-brand-green to-brand-cyan text-surface-300 text-xs font-bold shadow-glow-sm hover:brightness-110 flex items-center gap-2"
                 >
                   <span>Discuss a Similar Project</span>
                   <ArrowUpRight className="w-3.5 h-3.5" />

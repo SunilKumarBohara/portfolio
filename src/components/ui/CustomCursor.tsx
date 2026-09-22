@@ -73,7 +73,7 @@ export default function CustomCursor() {
     <>
       {/* Outer Glowing Fluid Aura */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full border border-brand-blue/40 mix-blend-screen"
+        className="fixed top-0 left-0 pointer-events-none z-[9999] rounded-full border border-brand-green/40 mix-blend-screen"
         style={{
           x: trailX,
           y: trailY,
@@ -83,8 +83,8 @@ export default function CustomCursor() {
         animate={{
           width: isPointer ? 54 : 32,
           height: isPointer ? 54 : 32,
-          backgroundColor: isPointer ? "rgba(59, 130, 246, 0.15)" : "rgba(56, 189, 248, 0.05)",
-          borderColor: isPointer ? "rgba(59, 130, 246, 0.7)" : "rgba(56, 189, 248, 0.35)",
+          backgroundColor: isPointer ? "rgba(0, 229, 153, 0.12)" : "rgba(0, 240, 255, 0.04)",
+          borderColor: isPointer ? "rgba(0, 229, 153, 0.6)" : "rgba(0, 240, 255, 0.3)",
           scale: isClicking ? 0.85 : 1,
         }}
         transition={{ type: "spring", damping: 25, stiffness: 350 }}
@@ -92,7 +92,7 @@ export default function CustomCursor() {
 
       {/* Center Precision Pin */}
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[10000] rounded-full bg-brand-cyan shadow-glow-cyan"
+        className="fixed top-0 left-0 pointer-events-none z-[10000] rounded-full bg-brand-green shadow-glow-sm"
         style={{
           x: smoothX,
           y: smoothY,
@@ -103,7 +103,7 @@ export default function CustomCursor() {
           width: isPointer ? 8 : 5,
           height: isPointer ? 8 : 5,
           scale: isClicking ? 1.4 : 1,
-          backgroundColor: isPointer ? "#ef4444" : "#38bdf8",
+          backgroundColor: isPointer ? "#00f0ff" : "#00e599",
         }}
         transition={{ type: "spring", damping: 30, stiffness: 500 }}
       />

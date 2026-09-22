@@ -62,7 +62,7 @@ export default function GlassCard({
       }}
       transition={{ type: "spring", stiffness: 400, damping: 30 }}
       className={cn(
-        "relative rounded-2xl border border-white/10 bg-surface-200/70 p-6 backdrop-blur-xl transition-colors duration-300 hover:border-brand-blue/40 shadow-glass-card group overflow-hidden",
+        "relative rounded-2xl border border-white/10 bg-surface-200/70 p-6 backdrop-blur-xl transition-colors duration-300 hover:border-brand-green/40 shadow-glass-card group overflow-hidden",
         onClick && "cursor-pointer",
         className
       )}
@@ -73,7 +73,7 @@ export default function GlassCard({
           className="pointer-events-none absolute -inset-px transition-opacity duration-300 rounded-2xl"
           style={{
             opacity: glowPos.opacity,
-            background: `radial-gradient(400px circle at ${glowPos.x}px ${glowPos.y}px, rgba(59, 130, 246, 0.18), transparent 60%)`,
+            background: `radial-gradient(400px circle at ${glowPos.x}px ${glowPos.y}px, rgba(0, 229, 153, 0.15), transparent 60%)`,
           }}
         />
       )}

@@ -3,43 +3,33 @@
 @tailwind utilities;
 
 :root {
-  --background: #050816;
-  --surface-50: #11172a;
-  --surface-100: #0d1222;
-  --surface-200: #080c18;
-  --surface-300: #050814;
+  --background: #06070a;
+  --surface-50: #161922;
+  --surface-100: #12141c;
+  --surface-200: #0d0f16;
+  --surface-300: #090a0f;
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  --brand-blue: #3b82f6;
-  --brand-cyan: #38bdf8;
-  --brand-red: #ef4444;
-  --brand-accent: #ef4444;
-  --card-bg: rgba(9, 14, 27, 0.75);
+  --brand-green: #00e599;
+  --brand-cyan: #00f0ff;
   --card-border: rgba(255, 255, 255, 0.1);
   --grid-line: rgba(255, 255, 255, 0.03);
-  --glow-primary: rgba(59, 130, 246, 0.25);
-  --glow-secondary: rgba(239, 68, 68, 0.2);
 }
 
 html.light {
-  --background: #f4f7fb;
+  --background: #f8fafc;
   --surface-50: #ffffff;
-  --surface-100: #e8eef7;
+  --surface-100: #f1f5f9;
   --surface-200: #ffffff;
-  --surface-300: #edf2f9;
-  --text-primary: #0a1128;
+  --surface-300: #f8fafc;
+  --text-primary: #0f172a;
   --text-secondary: #334155;
   --text-muted: #64748b;
-  --brand-blue: #1d4ed8;
+  --brand-green: #059669;
   --brand-cyan: #0284c7;
-  --brand-red: #dc2626;
-  --brand-accent: #dc2626;
-  --card-bg: rgba(255, 255, 255, 0.85);
-  --card-border: rgba(15, 23, 42, 0.1);
+  --card-border: rgba(15, 23, 42, 0.08);
   --grid-line: rgba(15, 23, 42, 0.04);
-  --glow-primary: rgba(29, 78, 216, 0.15);
-  --glow-secondary: rgba(220, 38, 38, 0.12);
 }
 
 /* Custom smooth scroll behavior */
@@ -68,21 +58,21 @@ body {
 ::-webkit-scrollbar-thumb {
   background: #1e293b;
   border-radius: 4px;
-  border: 1px solid rgba(59, 130, 246, 0.25);
+  border: 1px solid rgba(0, 229, 153, 0.2);
 }
 
 html.light ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
-  border: 1px solid rgba(29, 78, 216, 0.2);
+  border: 1px solid rgba(5, 150, 105, 0.2);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-blue);
+  background: var(--brand-green);
 }
 
 /* Text selection highlight */
 ::selection {
-  background: rgba(59, 130, 246, 0.35);
+  background: rgba(0, 229, 153, 0.3);
   color: #ffffff;
 }
 

@@ -50,13 +50,13 @@ export default function MagneticButton({
 
   const variantClasses = {
     primary:
-      "bg-gradient-to-r from-brand-blue to-brand-red text-white font-bold hover:shadow-glow-md shadow-glow-sm border border-brand-blue/40 hover:brightness-110",
+      "bg-gradient-to-r from-brand-green to-brand-cyan text-surface-300 font-bold hover:shadow-glow-md shadow-glow-sm border border-brand-green/40 hover:brightness-110",
     secondary:
-      "bg-surface-100/80 text-white hover:text-brand-cyan border border-white/10 hover:border-brand-blue/40 backdrop-blur-md hover:bg-surface-50/80",
+      "bg-surface-100/80 text-white hover:text-brand-green border border-white/10 hover:border-brand-green/40 backdrop-blur-md hover:bg-surface-50/80",
     outline:
       "bg-transparent text-gray-200 border border-brand-cyan/40 hover:border-brand-cyan hover:text-brand-cyan hover:shadow-glow-cyan",
     glow:
-      "bg-brand-blue/10 text-brand-cyan border border-brand-blue/50 hover:bg-brand-blue hover:text-white hover:shadow-glow-md",
+      "bg-brand-green/10 text-brand-green border border-brand-green/50 hover:bg-brand-green hover:text-surface-300 hover:shadow-glow-md",
   };
 
   const content = (
@@ -88,7 +88,7 @@ export default function MagneticButton({
   }
 
   return (
-    <button {...props} className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-blue rounded-xl">
+    <button {...props} className="inline-block focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-green rounded-xl">
       {content}
     </button>
   );

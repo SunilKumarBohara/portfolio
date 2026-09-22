@@ -32,8 +32,8 @@ export default function SkillsSection() {
                 onClick={() => setSelectedCat(idx)}
                 className={`px-5 py-2.5 rounded-full text-xs font-mono transition-all duration-300 flex items-center gap-2 border ${
                   isActive
-                    ? "bg-brand-blue/20 text-brand-cyan border-brand-blue/60 shadow-glow-sm"
-                    : "bg-surface-200/80 text-gray-400 border-white/10 hover:text-white hover:border-brand-blue/30"
+                    ? "bg-brand-green/20 text-brand-green border-brand-green/60 shadow-glow-sm"
+                    : "bg-surface-200/80 text-gray-400 border-white/10 hover:text-white hover:border-brand-green/30"
                 }`}
               >
                 {idx === 0 && <Cpu className="w-3.5 h-3.5" />}
@@ -56,13 +56,13 @@ export default function SkillsSection() {
           {skillCategories[selectedCat].skills.map((skill, idx) => (
             <GlassCard
               key={skill.name}
-              className="p-6 flex flex-col justify-between border-white/10 hover:border-brand-blue/40 group"
+              className="p-6 flex flex-col justify-between border-white/10 hover:border-brand-green/40 group"
             >
               <div>
                 <div className="flex items-center justify-between mb-3">
                   <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-brand-cyan shadow-glow-cyan" />
-                    <h3 className="text-base font-bold text-white group-hover:text-brand-cyan transition-colors font-display">
+                    <span className="w-2 h-2 rounded-full bg-brand-green shadow-glow-sm" />
+                    <h3 className="text-base font-bold text-white group-hover:text-brand-green transition-colors font-display">
                       {skill.name}
                     </h3>
                   </div>
@@ -91,8 +91,8 @@ export default function SkillsSection() {
         {/* Bottom Technical Assurance Callout */}
         <div className="mt-16 p-6 rounded-2xl bg-surface-200/50 border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-300 font-mono">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-xl bg-brand-blue/10 border border-brand-blue/30 flex items-center justify-center text-brand-cyan shrink-0">
-              <Terminal className="w-4 h-4 text-brand-red" />
+            <div className="w-9 h-9 rounded-xl bg-brand-green/10 border border-brand-green/30 flex items-center justify-center text-brand-green shrink-0">
+              <Terminal className="w-4 h-4" />
             </div>
             <div>
               <p className="text-white font-bold">SEO & Web Development Synergy</p>
@@ -101,7 +101,7 @@ export default function SkillsSection() {
               </p>
             </div>
           </div>
-          <span className="px-3 py-1 rounded-full bg-surface-100 text-brand-cyan border border-brand-blue/30 shrink-0">
+          <span className="px-3 py-1 rounded-full bg-surface-100 text-brand-green border border-brand-green/30 shrink-0">
             Full-Stack Technical Literacy
           </span>
         </div>

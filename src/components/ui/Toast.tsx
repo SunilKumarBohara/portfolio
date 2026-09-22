@@ -61,20 +61,20 @@ export function ToastProvider({ children }: { children: React.ReactNode }) {
               exit={{ opacity: 0, scale: 0.9, transition: { duration: 0.2 } }}
               className={`pointer-events-auto p-4 rounded-xl border backdrop-blur-xl shadow-2xl flex items-start gap-3 ${
                 t.type === "success"
-                  ? "bg-surface-200/95 border-brand-blue/50 text-white"
+                  ? "bg-surface-200/95 border-brand-green/40 text-white"
                   : t.type === "error"
-                  ? "bg-surface-200/95 border-brand-red/50 text-white"
-                  : "bg-surface-200/95 border-brand-cyan/50 text-white"
+                  ? "bg-surface-200/95 border-red-500/40 text-white"
+                  : "bg-surface-200/95 border-brand-cyan/40 text-white"
               }`}
             >
               {t.type === "success" && (
-                <CheckCircle2 className="w-5 h-5 text-brand-cyan shrink-0 mt-0.5" />
+                <CheckCircle2 className="w-5 h-5 text-brand-green shrink-0 mt-0.5" />
               )}
               {t.type === "error" && (
-                <AlertCircle className="w-5 h-5 text-brand-red shrink-0 mt-0.5" />
+                <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
               )}
               {t.type === "info" && (
-                <Info className="w-5 h-5 text-brand-blue shrink-0 mt-0.5" />
+                <Info className="w-5 h-5 text-brand-cyan shrink-0 mt-0.5" />
               )}
               <div className="flex-1 text-xs font-medium leading-relaxed">
                 {t.message}

@@ -12,15 +12,15 @@ const capabilities = [
     tag: "Core Engineering",
     icon: Cpu,
     description: "Crawl budget optimization, rendering diagnostics, XML sitemaps, robots directives, canonicalization, and Core Web Vitals.",
-    color: "from-blue-500/20 to-cyan-500/5",
-    accent: "text-brand-blue",
+    color: "from-emerald-500/20 to-teal-500/5",
+    accent: "text-brand-green",
   },
   {
     title: "GEO & AI Search",
     tag: "LLM Visibility",
     icon: Bot,
     description: "Structuring brand entity signals so AI engines (ChatGPT, Google AI Overviews, Perplexity) synthesize and cite your content.",
-    color: "from-purple-500/20 to-blue-500/5",
+    color: "from-cyan-500/20 to-blue-500/5",
     accent: "text-brand-cyan",
   },
   {
@@ -28,32 +28,32 @@ const capabilities = [
     tag: "Answer Engines",
     icon: MessageSquare,
     description: "Optimizing for position-zero featured answers, question targeting, Schema.org graphs, and instant snippet captures.",
-    color: "from-red-500/20 to-orange-500/5",
-    accent: "text-brand-red",
+    color: "from-blue-500/20 to-cyan-500/5",
+    accent: "text-brand-cyan",
   },
   {
     title: "Keyword & Intent",
     tag: "Search Psychology",
     icon: Search,
     description: "Deconstructing user intent, commercial queries, competitive gap analysis, and semantic topical clustering.",
-    color: "from-blue-500/20 to-indigo-500/5",
-    accent: "text-brand-blue",
+    color: "from-teal-500/20 to-emerald-500/5",
+    accent: "text-brand-green",
   },
   {
     title: "Content Architecture",
     tag: "Topical Authority",
     icon: FileText,
     description: "Architecting E-E-A-T driven pillar-cluster models that build undeniable search authority and user trust.",
-    color: "from-cyan-500/20 to-blue-500/5",
-    accent: "text-brand-cyan",
+    color: "from-green-500/20 to-emerald-500/5",
+    accent: "text-brand-green",
   },
   {
     title: "Organic Growth",
     tag: "Conversion & ROI",
     icon: Rocket,
     description: "Bridging the gap between raw organic search rankings and meaningful bottom-line business conversion funnels.",
-    color: "from-red-500/20 to-pink-500/5",
-    accent: "text-brand-red",
+    color: "from-lime-500/20 to-emerald-500/5",
+    accent: "text-brand-green",
   },
 ];
 
@@ -61,8 +61,8 @@ export default function AboutSection() {
   return (
     <section id="about" className="relative py-24 sm:py-32 bg-surface-300 border-t border-white/5 overflow-hidden">
       {/* Background Accent Glow */}
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-blue/5 blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-red/5 blur-[120px] pointer-events-none" />
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-brand-green/5 blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-brand-cyan/5 blur-[120px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollReveal animation="fade-up">
@@ -77,9 +77,9 @@ export default function AboutSection() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-16">
           {/* Left: Story & Philosophy */}
           <ScrollReveal animation="slide-left" className="lg:col-span-7 space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed">
-            <div className="p-6 rounded-2xl bg-surface-200/80 border border-white/10 backdrop-blur-md hover:border-brand-blue/30 transition-colors">
+            <div className="p-6 rounded-2xl bg-surface-200/80 border border-white/10 backdrop-blur-md hover:border-brand-green/30 transition-colors">
               <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2 font-display">
-                <MapPin className="w-5 h-5 text-brand-red" />
+                <MapPin className="w-5 h-5 text-brand-green" />
                 SEO Executive based in Nepal
               </h3>
               <p className="text-sm text-gray-300 leading-relaxed">
@@ -92,20 +92,20 @@ export default function AboutSection() {
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-2 text-xs font-mono text-gray-300">
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-100/60 border border-white/5 hover:border-brand-blue/30 transition-all">
-                <CheckCircle2 className="w-4 h-4 text-brand-cyan shrink-0" />
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-100/60 border border-white/5 hover:border-brand-green/30 transition-all">
+                <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0" />
                 <span>Search Intent & Commercial Mapping</span>
               </div>
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-100/60 border border-white/5 hover:border-brand-blue/30 transition-all">
-                <CheckCircle2 className="w-4 h-4 text-brand-cyan shrink-0" />
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-100/60 border border-white/5 hover:border-brand-green/30 transition-all">
+                <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0" />
                 <span>Core Web Vitals & Speed Optimization</span>
               </div>
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-100/60 border border-white/5 hover:border-brand-blue/30 transition-all">
-                <CheckCircle2 className="w-4 h-4 text-brand-cyan shrink-0" />
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-100/60 border border-white/5 hover:border-brand-green/30 transition-all">
+                <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0" />
                 <span>Schema.org Knowledge Graph Integration</span>
               </div>
-              <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-100/60 border border-white/5 hover:border-brand-blue/30 transition-all">
-                <CheckCircle2 className="w-4 h-4 text-brand-cyan shrink-0" />
+              <div className="flex items-center gap-2 p-3 rounded-xl bg-surface-100/60 border border-white/5 hover:border-brand-green/30 transition-all">
+                <CheckCircle2 className="w-4 h-4 text-brand-green shrink-0" />
                 <span>GEO & AI Answer Optimization</span>
               </div>
             </div>
@@ -113,10 +113,10 @@ export default function AboutSection() {
 
           {/* Right: Interactive 3D Entity Profile Card */}
           <ScrollReveal animation="slide-right" className="lg:col-span-5">
-            <GlassCard className="p-8 border-brand-blue/30 relative">
+            <GlassCard className="p-8 border-brand-green/30 relative">
               <div className="flex items-start justify-between mb-6">
                 <div>
-                  <span className="text-[11px] font-mono text-brand-cyan uppercase tracking-widest font-bold">
+                  <span className="text-[11px] font-mono text-brand-green uppercase tracking-widest font-bold">
                     Verified Professional Profile
                   </span>
                   <h4 className="text-2xl font-bold text-white font-display mt-1">
@@ -126,7 +126,7 @@ export default function AboutSection() {
                     SEO Executive • Nepal
                   </p>
                 </div>
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-blue/20 to-brand-red/20 border border-brand-blue/40 flex items-center justify-center text-brand-cyan shadow-glow-sm">
+                <div className="w-12 h-12 rounded-2xl bg-gradient-to-tr from-brand-green/20 to-brand-cyan/20 border border-brand-green/40 flex items-center justify-center text-brand-green shadow-glow-sm">
                   <Award className="w-6 h-6" />
                 </div>
               </div>
@@ -142,7 +142,7 @@ export default function AboutSection() {
                 </div>
                 <div className="flex justify-between py-1">
                   <span className="text-gray-500">Core Expertise:</span>
-                  <span className="text-brand-blue font-semibold">SEO / GEO / AEO & Technical</span>
+                  <span className="text-brand-green">SEO / GEO / AEO & Technical</span>
                 </div>
                 <div className="flex justify-between py-1">
                   <span className="text-gray-500">Methodology:</span>
@@ -151,13 +151,13 @@ export default function AboutSection() {
               </div>
 
               <div className="pt-2 flex items-center justify-between">
-                <div className="flex items-center gap-2 text-xs font-mono text-brand-cyan">
-                  <span className="w-2 h-2 rounded-full bg-brand-red animate-pulse" />
+                <div className="flex items-center gap-2 text-xs font-mono text-brand-green">
+                  <span className="w-2 h-2 rounded-full bg-brand-green animate-pulse" />
                   <span>Ready for Inquiries</span>
                 </div>
                 <a
                   href="#contact"
-                  className="text-xs font-mono text-white underline underline-offset-4 hover:text-brand-cyan transition-colors"
+                  className="text-xs font-mono text-white underline underline-offset-4 hover:text-brand-green transition-colors"
                 >
                   Consultation Details →
                 </a>
@@ -175,7 +175,7 @@ export default function AboutSection() {
                 <GlassCard className="h-full flex flex-col justify-between p-6">
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-10 h-10 rounded-xl bg-surface-100 border border-white/10 flex items-center justify-center text-brand-cyan group-hover:border-brand-blue/50 group-hover:shadow-glow-sm transition-all">
+                      <div className="w-10 h-10 rounded-xl bg-surface-100 border border-white/10 flex items-center justify-center text-brand-green group-hover:border-brand-green/50 group-hover:shadow-glow-sm transition-all">
                         <Icon className="w-5 h-5" />
                       </div>
                       <span className="text-[10px] font-mono text-gray-400 px-2 py-0.5 rounded bg-surface-100 border border-white/5">
@@ -183,7 +183,7 @@ export default function AboutSection() {
                       </span>
                     </div>
 
-                    <h4 className="text-lg font-bold text-white group-hover:text-brand-cyan transition-colors mb-2">
+                    <h4 className="text-lg font-bold text-white group-hover:text-brand-green transition-colors mb-2">
                       {cap.title}
                     </h4>
                     <p className="text-xs text-gray-400 leading-relaxed">

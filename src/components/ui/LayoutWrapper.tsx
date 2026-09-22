@@ -13,9 +13,15 @@ export default function LayoutWrapper({
 }) {
   const pathname = usePathname() || "";
   const isAdmin = pathname.startsWith("/admin");
+  const isPromptStudio = pathname.startsWith("/prompt-studio");
 
-  if (isAdmin) {
-    return <main className="relative min-h-screen">{children}</main>;
+  if (isAdmin || isPromptStudio) {
+    return (
+      <>
+        <CustomCursor />
+        <main className="relative min-h-screen">{children}</main>
+      </>
+    );
   }
 
   return (
