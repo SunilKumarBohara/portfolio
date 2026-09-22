@@ -47,12 +47,23 @@ $contact_email = get_theme_mod('skb_contact_email', 'sunilbohara3000@gmail.com')
                     </div>
 
                     <!-- Email Display -->
-                    <div style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 14px; padding: 14px 18px; display: flex; align-items: center; gap: 12px;">
+                    <div style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 14px; padding: 14px 18px; display: flex; align-items: center; gap: 12px; margin-bottom: 12px;">
                         <span style="font-size: 1.2rem; color: var(--brand-cyan);">✉️</span>
                         <div>
                             <span style="font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); display: block;">Official Email</span>
                             <a href="mailto:<?php echo esc_attr($contact_email); ?>" style="font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; color: var(--text-primary); font-weight: 600;">
                                 <?php echo esc_html($contact_email); ?>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Phone / WhatsApp Display -->
+                    <div style="background-color: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 14px; padding: 14px 18px; display: flex; align-items: center; gap: 12px;">
+                        <span style="font-size: 1.2rem; color: var(--brand-blue);">📞</span>
+                        <div>
+                            <span style="font-size: 0.7rem; font-family: 'JetBrains Mono', monospace; color: var(--text-muted); display: block;">Phone / WhatsApp</span>
+                            <a href="tel:+9779817268172" style="font-size: 0.9rem; font-family: 'JetBrains Mono', monospace; color: var(--text-primary); font-weight: 600;">
+                                +977 9817268172
                             </a>
                         </div>
                     </div>

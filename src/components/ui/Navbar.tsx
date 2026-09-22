@@ -85,17 +85,17 @@ export default function Navbar() {
             {/* Right: Direct Contacts */}
             <div className="flex items-center gap-3 text-gray-400 text-[11px] font-sans">
               <a
-                href="mailto:sunilkumarbohara99@gmail.com"
+                href="mailto:sunilbohara3000@gmail.com"
                 className="hover:text-brand-green transition-colors hidden sm:inline"
               >
-                sunilkumarbohara99@gmail.com
+                sunilbohara3000@gmail.com
               </a>
               <span className="text-white/20 hidden sm:inline">|</span>
               <a
-                href="tel:+9779868773950"
+                href="tel:+9779817268172"
                 className="hover:text-brand-green transition-colors"
               >
-                +977 9868773950
+                +977 9817268172
               </a>
             </div>
           </div>

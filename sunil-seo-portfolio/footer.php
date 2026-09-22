@@ -33,9 +33,13 @@ $twitter_url   = get_theme_mod('skb_social_twitter', 'https://x.com/SunilBohara6
                 <p style="font-size: 0.85rem; color: var(--text-secondary); max-width: 380px; line-height: 1.6; margin-bottom: 14px;">
                     Engineering sustainable organic search visibility, technical crawl integrity, and modern content architecture for forward-thinking enterprises.
                 </p>
-                <p style="font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; color: var(--brand-cyan); display: flex; align-items: center; gap: 6px;">
+                <p style="font-size: 0.8rem; font-family: 'JetBrains Mono', monospace; color: var(--brand-cyan); display: flex; align-items: center; gap: 6px; margin-bottom: 8px;">
                     <span>📍</span> Kathmandu, Nepal (UTC+5:45)
                 </p>
+                <div style="font-size: 0.78rem; font-family: 'JetBrains Mono', monospace; color: var(--text-secondary); display: flex; flex-direction: column; gap: 4px;">
+                    <a href="mailto:sunilbohara3000@gmail.com" style="color: var(--text-secondary); text-decoration: none;">✉️ sunilbohara3000@gmail.com</a>
+                    <a href="tel:+9779817268172" style="color: var(--text-secondary); text-decoration: none;">📞 +977 9817268172</a>
+                </div>
             </div>
 
             <!-- Navigation Links Column -->

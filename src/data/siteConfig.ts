@@ -32,6 +32,7 @@ export const siteConfig: SiteConfig = {
   country: "Nepal",
   availability: "Available for SEO Projects & Strategy Consultations",
   email: "sunilbohara3000@gmail.com",
+  phone: "+977 9817268172",
   socials: {
     github: "https://github.com/SunilKumarBohara",
     linkedin: "https://www.linkedin.com/in/sunil-kumar-bohara/",

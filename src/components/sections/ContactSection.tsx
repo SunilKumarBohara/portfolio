@@ -8,6 +8,7 @@ import { siteConfig } from "@/data/siteConfig";
 import ScrollReveal from "../ui/ScrollReveal";
 import {
   Mail,
+  Phone,
   MapPin,
   Send,
   CheckCircle2,
@@ -161,7 +162,7 @@ export default function ContactSection() {
                 </p>
               </div>
 
-              {/* Email Information */}
+              {/* Email & Phone Information */}
               <div className="space-y-3 text-xs font-mono">
                 <div className="flex items-center justify-between p-3.5 rounded-xl bg-surface-100/70 border border-white/5">
                   <div className="flex items-center gap-2.5 text-gray-300">
@@ -181,6 +182,19 @@ export default function ContactSection() {
                     )}
                   </button>
                 </div>
+
+                <a
+                  href={`tel:${siteConfig.phone}`}
+                  className="flex items-center justify-between p-3.5 rounded-xl bg-surface-100/70 border border-white/5 hover:border-brand-green/30 transition-all group"
+                >
+                  <div className="flex items-center gap-2.5 text-gray-300">
+                    <Phone className="w-4 h-4 text-brand-green group-hover:scale-110 transition-transform" />
+                    <span className="text-white font-medium group-hover:text-brand-green transition-colors">
+                      {siteConfig.phone}
+                    </span>
+                  </div>
+                  <ArrowUpRight className="w-3.5 h-3.5 text-gray-500 group-hover:text-brand-green transition-colors" />
+                </a>
               </div>
 
               {/* 5 Verified Social Profiles with 3D Hover & Glow */}
