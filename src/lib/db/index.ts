@@ -153,12 +153,11 @@ export function initDatabase() {
     writeJson("menus.json", [
       { id: "menu_1", label: "About", url: "#about", order: 1 },
       { id: "menu_2", label: "Services", url: "#services", order: 2 },
-      { id: "menu_3", label: "Search Universe", url: "#universe", order: 3 },
-      { id: "menu_4", label: "Skills", url: "#skills", order: 4 },
-      { id: "menu_5", label: "Journey", url: "#journey", order: 5 },
-      { id: "menu_6", label: "Projects", url: "#projects", order: 6 },
-      { id: "menu_7", label: "SEO Insights", url: "/blog", order: 7 },
-      { id: "menu_8", label: "Contact", url: "#contact", order: 8 },
+      { id: "menu_4", label: "Skills", url: "#skills", order: 3 },
+      { id: "menu_5", label: "Journey", url: "#journey", order: 4 },
+      { id: "menu_6", label: "Projects", url: "#projects", order: 5 },
+      { id: "menu_7", label: "SEO Insights", url: "/blog", order: 6 },
+      { id: "menu_8", label: "Contact", url: "#contact", order: 7 },
     ]);
   }
 

@@ -1,7 +1,6 @@
 import HeroSection from "@/components/sections/HeroSection";
 import AboutSection from "@/components/sections/AboutSection";
 import ServicesSection from "@/components/sections/ServicesSection";
-import SearchUniverseSection from "@/components/sections/SearchUniverseSection";
 import SeoApproach from "@/components/sections/SeoApproach";
 import SkillsSection from "@/components/sections/SkillsSection";
 import SeoJourneySection from "@/components/sections/SeoJourneySection";
@@ -17,7 +16,6 @@ export default function HomePage() {
       <HeroSection />
       <AboutSection />
       <ServicesSection />
-      <SearchUniverseSection />
       <SeoApproach />
       <SkillsSection />
       <SeoJourneySection />

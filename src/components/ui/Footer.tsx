@@ -78,11 +78,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/#universe" className="hover:text-brand-green transition-colors">
-                  Search Universe (SEO/GEO/AEO)
-                </Link>
-              </li>
-              <li>
                 <Link href="/#journey" className="hover:text-brand-green transition-colors">
                   SEO Journey
                 </Link>
