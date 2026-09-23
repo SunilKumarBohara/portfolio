@@ -18,7 +18,11 @@ $hero_desc     = get_theme_mod(
 );
 
 if (empty($hero_image)) {
-    $hero_image = get_template_directory_uri() . '/assets/images/hero-placeholder.svg';
+    if (file_exists(get_template_directory() . '/assets/images/sunil-kumar-bohara.jpg')) {
+        $hero_image = get_template_directory_uri() . '/assets/images/sunil-kumar-bohara.jpg';
+    } else {
+        $hero_image = get_template_directory_uri() . '/assets/images/hero-placeholder.svg';
+    }
 }
 ?>
 

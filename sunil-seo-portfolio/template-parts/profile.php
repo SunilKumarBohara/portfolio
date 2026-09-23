@@ -18,9 +18,15 @@ $profile_bio   = get_theme_mod(
 );
 
 if (empty($profile_image)) {
-    // If hero image is provided, use it as fallback, otherwise default SVG
+    // If hero image is provided, use it as fallback, otherwise real photo or default SVG
     $hero_img = get_theme_mod('skb_hero_image', '');
-    $profile_image = !empty($hero_img) ? $hero_img : get_template_directory_uri() . '/assets/images/profile-placeholder.svg';
+    if (!empty($hero_img)) {
+        $profile_image = $hero_img;
+    } elseif (file_exists(get_template_directory() . '/assets/images/sunil-kumar-bohara.jpg')) {
+        $profile_image = get_template_directory_uri() . '/assets/images/sunil-kumar-bohara.jpg';
+    } else {
+        $profile_image = get_template_directory_uri() . '/assets/images/profile-placeholder.svg';
+    }
 }
 
 $github_url    = get_theme_mod('skb_social_github', 'https://github.com/SunilKumarBohara');
