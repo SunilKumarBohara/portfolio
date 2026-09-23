@@ -14,67 +14,11 @@ import {
   CheckCircle2,
   Copy,
   Check,
-  Linkedin,
-  Github,
-  Facebook,
-  Instagram,
   Sparkles,
   ArrowUpRight,
   AlertCircle,
   Loader2,
 } from "lucide-react";
-
-// Custom X (Twitter) Icon
-function XTwitterIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  );
-}
-
-const socialProfiles = [
-  {
-    name: "GitHub",
-    handle: "SunilKumarBohara",
-    url: siteConfig.socials.github,
-    icon: Github,
-    color: "hover:text-white hover:border-gray-400 hover:shadow-[0_0_20px_rgba(255,255,255,0.2)]",
-    badgeColor: "bg-gray-800 text-gray-200",
-  },
-  {
-    name: "LinkedIn",
-    handle: "Sunil Kumar Bohara",
-    url: siteConfig.socials.linkedin,
-    icon: Linkedin,
-    color: "hover:text-sky-400 hover:border-sky-400 hover:shadow-[0_0_20px_rgba(56,189,248,0.3)]",
-    badgeColor: "bg-sky-950 text-sky-300",
-  },
-  {
-    name: "Facebook",
-    handle: "sunilkumarbohara99",
-    url: siteConfig.socials.facebook,
-    icon: Facebook,
-    color: "hover:text-blue-500 hover:border-blue-500 hover:shadow-[0_0_20px_rgba(59,130,246,0.3)]",
-    badgeColor: "bg-blue-950 text-blue-300",
-  },
-  {
-    name: "Instagram",
-    handle: "sunilkumarbohara7",
-    url: siteConfig.socials.instagram,
-    icon: Instagram,
-    color: "hover:text-pink-400 hover:border-pink-400 hover:shadow-[0_0_20px_rgba(244,114,182,0.3)]",
-    badgeColor: "bg-pink-950 text-pink-300",
-  },
-  {
-    name: "X (Twitter)",
-    handle: "@SunilBohara66",
-    url: siteConfig.socials.twitter,
-    icon: XTwitterIcon,
-    color: "hover:text-cyan-400 hover:border-cyan-400 hover:shadow-[0_0_20px_rgba(34,211,238,0.3)]",
-    badgeColor: "bg-cyan-950 text-cyan-300",
-  },
-];
 
 export default function ContactSection() {
   const [copied, setCopied] = useState(false);
@@ -197,46 +141,12 @@ export default function ContactSection() {
                 </a>
               </div>
 
-              {/* 5 Verified Social Profiles with 3D Hover & Glow */}
-              <div className="pt-6 mt-6 border-t border-white/10 space-y-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-[10px] font-mono uppercase tracking-wider text-brand-green font-semibold">
-                    Verified Social Profiles
-                  </span>
-                  <span className="text-[10px] font-mono text-gray-500">Official Links</span>
-                </div>
-
-                <div className="grid grid-cols-1 gap-2.5">
-                  {socialProfiles.map((item) => {
-                    const Icon = item.icon;
-                    return (
-                      <a
-                        key={item.name}
-                        href={item.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className={`group flex items-center justify-between p-3 rounded-xl bg-surface-100/80 border border-white/5 transition-all duration-300 transform hover:-translate-y-0.5 ${item.color}`}
-                        aria-label={`${item.name} profile`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 rounded-lg bg-surface-200 border border-white/10 flex items-center justify-center text-gray-300 group-hover:scale-110 transition-transform">
-                            <Icon className="w-4 h-4" />
-                          </div>
-                          <div>
-                            <span className="text-xs font-bold text-white block group-hover:text-brand-green transition-colors font-display">
-                              {item.name}
-                            </span>
-                            <span className="text-[10px] font-mono text-gray-500">
-                              {item.handle}
-                            </span>
-                          </div>
-                        </div>
-
-                        <ArrowUpRight className="w-4 h-4 text-gray-500 group-hover:text-brand-green group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      </a>
-                    );
-                  })}
-                </div>
+              <div className="pt-6 mt-6 border-t border-white/10 flex items-center justify-between text-xs font-mono text-gray-400">
+                <span className="flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-brand-green" />
+                  Average Response: &lt; 24h
+                </span>
+                <span className="text-gray-500">100% Privacy</span>
               </div>
             </GlassCard>
           </ScrollReveal>
