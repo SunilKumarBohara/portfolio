@@ -204,6 +204,32 @@
       window.addEventListener('scroll', highlightActiveNav, { passive: true });
     }
 
+    // Smooth scrolling for internal anchor links with header offset
+    document.querySelectorAll('a[href^="#"], a[href^="/#"]').forEach((anchor) => {
+      anchor.addEventListener('click', function (e) {
+        const href = this.getAttribute('href');
+        let targetId = null;
+        if (href.startsWith('/#') && href.length > 2) {
+          targetId = href.replace('/#', '');
+        } else if (href.startsWith('#') && href.length > 1) {
+          targetId = href.slice(1);
+        }
+
+        if (targetId) {
+          const targetElem = document.getElementById(targetId);
+          if (targetElem) {
+            e.preventDefault();
+            const headerHeight = siteHeader ? siteHeader.offsetHeight : 80;
+            const targetPosition = targetElem.getBoundingClientRect().top + window.pageYOffset - headerHeight - 16;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }
+      });
+    });
+
     // -----------------------------------------------------------------------
     // 5. Back to Top Button
     // -----------------------------------------------------------------------

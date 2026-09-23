@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import CustomCursor from "@/components/ui/CustomCursor";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
+import SmoothScrollProvider from "@/components/ui/SmoothScrollProvider";
 
 export default function LayoutWrapper({
   children,
@@ -25,11 +26,11 @@ export default function LayoutWrapper({
   }
 
   return (
-    <>
+    <SmoothScrollProvider>
       <CustomCursor />
       <Navbar />
       <main className="relative">{children}</main>
       <Footer />
-    </>
+    </SmoothScrollProvider>
   );
 }

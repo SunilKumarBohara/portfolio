@@ -69,6 +69,11 @@ html[data-theme="light"] {
 /* --------------------------------------------------------------------------
    2. Typography & Base Layout
    -------------------------------------------------------------------------- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 96px;
+}
+
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);

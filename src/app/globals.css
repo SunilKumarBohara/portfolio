@@ -32,10 +32,30 @@ html.light {
   --grid-line: rgba(15, 23, 42, 0.04);
 }
 
-/* Custom smooth scroll behavior */
+/* Custom smooth scroll behavior & Lenis integration */
 html {
-  scroll-behavior: smooth;
   background-color: var(--background);
+  scroll-padding-top: 90px;
+}
+
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
 }
 
 body {
