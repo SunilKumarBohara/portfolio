@@ -19,7 +19,6 @@ get_header();
     get_template_part('template-parts/services');
     get_template_part('template-parts/skills');
     get_template_part('template-parts/projects');
-    get_template_part('template-parts/insights');
     get_template_part('template-parts/profile');
     get_template_part('template-parts/contact');
     ?>

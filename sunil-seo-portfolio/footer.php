@@ -50,7 +50,6 @@ $twitter_url   = get_theme_mod('skb_social_twitter', 'https://x.com/SunilBohara6
                     <li><a href="<?php echo esc_url(home_url('/#services')); ?>" class="footer-link">SEO Services</a></li>
                     <li><a href="<?php echo esc_url(home_url('/#skills')); ?>" class="footer-link">Skills & Stack</a></li>
                     <li><a href="<?php echo esc_url(home_url('/#projects')); ?>" class="footer-link">Case Studies</a></li>
-                    <li><a href="<?php echo esc_url(home_url('/#insights')); ?>" class="footer-link">SEO Insights</a></li>
                     <li><a href="<?php echo esc_url(home_url('/#contact')); ?>" class="footer-link">Contact Consultation</a></li>
                 </ul>
             </div>

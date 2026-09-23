@@ -88,17 +88,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/prompt-studio" className="hover:text-brand-cyan transition-colors flex items-center gap-1.5 text-brand-green font-semibold">
-                  <Sparkles className="w-3 h-3" />
-                  <span>Prompt Studio IDE</span>
-                </Link>
-              </li>
-              <li>
-                <Link href="/blog" className="hover:text-brand-green transition-colors">
-                  SEO Insights
-                </Link>
-              </li>
-              <li>
                 <Link href="/#contact" className="hover:text-brand-green transition-colors">
                   Get In Touch
                 </Link>

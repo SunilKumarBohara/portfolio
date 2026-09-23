@@ -20,8 +20,6 @@ export default function Navbar() {
     { name: "Skills", href: "/#skills" },
     { name: "Journey", href: "/#journey" },
     { name: "Projects", href: "/#projects" },
-    { name: "Prompt IDE", href: "/prompt-studio" },
-    { name: "SEO Insights", href: "/blog" },
     { name: "Contact", href: "/#contact" },
   ];
 

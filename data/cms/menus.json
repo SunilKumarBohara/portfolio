@@ -30,15 +30,9 @@
     "order": 5
   },
   {
-    "id": "menu_7",
-    "label": "SEO Insights",
-    "url": "/blog",
-    "order": 6
-  },
-  {
     "id": "menu_8",
     "label": "Contact",
     "url": "#contact",
-    "order": 7
+    "order": 6
   }
 ]

@@ -109,7 +109,6 @@ if (!defined('ABSPATH')) {
                     <a href="<?php echo esc_url(home_url('/#services')); ?>" class="nav-link">Services</a>
                     <a href="<?php echo esc_url(home_url('/#skills')); ?>" class="nav-link">Skills</a>
                     <a href="<?php echo esc_url(home_url('/#projects')); ?>" class="nav-link">Projects</a>
-                    <a href="<?php echo esc_url(home_url('/#insights')); ?>" class="nav-link">Insights</a>
                     <a href="<?php echo esc_url(home_url('/#profile')); ?>" class="nav-link">Profile</a>
                     <a href="<?php echo esc_url(home_url('/#contact')); ?>" class="nav-link">Contact</a>
                     <?php
@@ -183,7 +182,6 @@ if (!defined('ABSPATH')) {
             <a href="<?php echo esc_url(home_url('/#services')); ?>" class="drawer-link">SEO Services</a>
             <a href="<?php echo esc_url(home_url('/#skills')); ?>" class="drawer-link">Skills & Tools</a>
             <a href="<?php echo esc_url(home_url('/#projects')); ?>" class="drawer-link">Case Studies</a>
-            <a href="<?php echo esc_url(home_url('/#insights')); ?>" class="drawer-link">SEO Insights</a>
             <a href="<?php echo esc_url(home_url('/#profile')); ?>" class="drawer-link">Profile Card</a>
             <a href="<?php echo esc_url(home_url('/#contact')); ?>" class="drawer-link">Get In Touch</a>
         </nav>

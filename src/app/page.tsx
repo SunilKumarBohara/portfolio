@@ -7,7 +7,6 @@ import SeoJourneySection from "@/components/sections/SeoJourneySection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 import ResultsDashboard from "@/components/sections/ResultsDashboard";
 import SeoToolkit from "@/components/sections/SeoToolkit";
-import BlogSection from "@/components/sections/BlogSection";
 import ContactSection from "@/components/sections/ContactSection";
 
 export default function HomePage() {
@@ -22,7 +21,6 @@ export default function HomePage() {
       <ProjectsSection />
       <ResultsDashboard />
       <SeoToolkit />
-      <BlogSection />
       <ContactSection />
     </div>
   );

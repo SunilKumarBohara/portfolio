@@ -156,8 +156,7 @@ export function initDatabase() {
       { id: "menu_4", label: "Skills", url: "#skills", order: 3 },
       { id: "menu_5", label: "Journey", url: "#journey", order: 4 },
       { id: "menu_6", label: "Projects", url: "#projects", order: 5 },
-      { id: "menu_7", label: "SEO Insights", url: "/blog", order: 6 },
-      { id: "menu_8", label: "Contact", url: "#contact", order: 7 },
+      { id: "menu_8", label: "Contact", url: "#contact", order: 6 },
     ]);
   }
 
